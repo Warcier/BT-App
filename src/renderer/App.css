@@ -4,7 +4,7 @@
 
 .btn
 {
-  @apply bg-PaleSilver py-2 px-3 uppercase text-sm font-bold cursor-pointer tracking-wider
+  @apply rounded-full border-2 bg-Flame py-2 px-3 uppercase text-sm font-bold cursor-pointer tracking-wider
 }
 
 
