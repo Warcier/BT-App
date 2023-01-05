@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import AddCardInfoBtn from '../components/addCardInfobtn';
 
 const Home = () => {
   return (
@@ -22,6 +23,9 @@ const Home = () => {
           <Link to="/family" className="btn">
             family
           </Link>
+        </div>
+        <div>
+          <AddCardInfoBtn />
         </div>
       </div>
     </div>

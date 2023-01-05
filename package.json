@@ -105,13 +105,16 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@hookform/resolvers": "^2.9.10",
     "daisyui": "^2.46.1",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^5.2.3",
     "firebase": "^9.15.0",
+    "joi": "^17.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.5",
     "react-router-dom": "^6.4.0"
   },
   "devDependencies": {
