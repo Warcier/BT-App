@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import AddCardInfoBtn from '../components/addCardInfobtn';
+import Navbar from '../components/navbar';
 
 const Home = () => {
   return (
@@ -13,8 +14,6 @@ const Home = () => {
           Hello Tailwind
           <br />
         </h1>
-<<<<<<< HEAD
-=======
         <FontAwesomeIcon icon={faHome} />
         <div>
           <Link to="/test" className="btn">
@@ -30,7 +29,6 @@ const Home = () => {
         <div>
           <AddCardInfoBtn />
         </div>
->>>>>>> 6efaa36 ( adding card info)
       </div>
     </div>
   );
