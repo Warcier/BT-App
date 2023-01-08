@@ -4,7 +4,6 @@ import FamilySpend from './pages/FamilySpend';
 import Wallet from './pages/Wallet';
 import Home from './pages/Home';
 
-
 export default function App() {
   return (
     <Router>
