@@ -3,8 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import Navbar from 'renderer/components/navbar';
 import AddCardInfoBtn from '../components/addCardInfobtn';
-
 
 const Home = () => {
   return (
@@ -31,7 +31,6 @@ const Home = () => {
         <div>
           <AddCardInfoBtn />
         </div>
-
       </div>
     </div>
   );
