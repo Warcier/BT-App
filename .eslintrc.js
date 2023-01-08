@@ -8,7 +8,7 @@ module.exports = {
             "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
             "message": "Unexpected property on console object was called"
         }
-    ]
+    ],
     // A temporary hack related to IDE not resolving correct package.json
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'error',
@@ -32,7 +32,7 @@ module.exports = {
       typescript: {},
     },
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
+      '@typescript-eslint/parser': ['.ts', '.tsx', 'jsx', 'js'],
     },
   },
 };
