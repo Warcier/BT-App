@@ -41,3 +41,5 @@ const storage = getStorage(app);
 
 
 export default db;
+export default storage;
+
