@@ -16,9 +16,28 @@ const firebaseConfig = {
   measurementId: 'G-2NJM34DBF6',
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const db = getFirestore(app);
+
+
+
+// Second database
+const firebaseConfig2 = {
+  apiKey: "AIzaSyCgSUyao105q12zhL8DRE26JjvSxQEqk0Y",
+  authDomain: "budget-tracker-db-2.firebaseapp.com",
+  projectId: "budget-tracker-db-2",
+  storageBucket: "budget-tracker-db-2.appspot.com",
+  messagingSenderId: "989832294908",
+  appId: "1:989832294908:web:50151fce01274cc1920279",
+  measurementId: "G-4RFLSLYVTX"
+};
+
+// Initialize Firebase 2 - Storage function
+const app = initializeApp(firebaseConfig2);
+const db2 = getFirestore(app);
+
 
 export default db;
