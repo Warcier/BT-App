@@ -37,7 +37,7 @@ const firebaseConfig2 = {
 
 // Initialize Firebase 2 - Storage function
 const app = initializeApp(firebaseConfig2);
-const db2 = getFirestore(app);
+const storage = getStorage(app);
 
 
 export default db;
