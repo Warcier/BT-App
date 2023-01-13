@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faWallet, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faWallet,
+  faUser,
+  faReceipt,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   return (
@@ -50,9 +55,9 @@ const Navbar = () => {
                 </li>
                 <li className="rounded-sm">
                   <div className="flex items-center p-2 space-x-3 rounded-md">
-                    <FontAwesomeIcon icon={faUser} />
-                    <Link to="/family" className="btn">
-						Receipts
+                    <FontAwesomeIcon icon={faReceipt} />
+                    <Link to="/receipt" className="btn">
+                      Receipts
                     </Link>
                   </div>
                 </li>
