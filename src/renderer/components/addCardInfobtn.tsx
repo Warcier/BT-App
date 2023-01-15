@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
-import db from '../firebase';
+import { db } from '../firebase';
 
 /*
 #TODO
