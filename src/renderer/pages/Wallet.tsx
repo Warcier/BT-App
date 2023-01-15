@@ -9,9 +9,6 @@ const Wallet = () => {
         <Link to="/" className="btn">
           Wallet
         </Link>
-        <Link to="/" className="btn">
-          Home
-        </Link>
       </div>
     </div>
   );
