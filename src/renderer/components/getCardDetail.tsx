@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
-import db from '../firebase';
+import { db } from '../firebase';
 
 const GetCardDetail = () => {
   const [table, setTable] = useState<any[]>([]);
