@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
-import { v4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const Receipts = () => {
   const [imageUpload, setImageUpload] = useState(null);
@@ -12,9 +12,11 @@ const Receipts = () => {
   const uploadImage = () => {
     if (imageUpload == null) return;
 
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    // @ts-ignore
+    const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
+        // @ts-ignore
         setImageList((prev) => [...prev, url]);
       });
     });
@@ -24,6 +26,7 @@ const Receipts = () => {
     listAll(imageListRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
+          // @ts-ignore
           setImageList((prev) => [...prev, url]);
         })
       })
@@ -37,6 +40,7 @@ const Receipts = () => {
         <input
           type="file"
           onChange={(event) => {
+            // @ts-ignore
             setImageUpload(event.target.files[0]);
           }}
         />

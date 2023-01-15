@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
-import { db, storage } from '../firebase';
+import { db } from '../firebase';
 
 /*
 #TODO
@@ -35,7 +35,8 @@ const AddCardInfoBtn = () => {
   // Handle Submit Action for the form
   const onSubmit = handleSubmit(async (data) => {
     // Add a new document in collection "cities"
-    await setDoc(doc(db, 'users', 'users-card', 'users-1', 'userCC'), {
+    // TODO: Automatically assign a unique id to the document
+    await setDoc(doc(db, 'users', 'users-card-7'), {
       CardName: data.cardName,
       CardNumber: data.cardNumber,
       CVC: data.CVC,
@@ -49,77 +50,115 @@ const AddCardInfoBtn = () => {
   return (
     <div>
       {/* The button to open modal */}
-      <label htmlFor="my-modal-3" className="btn">
-        Open modal
+      <label htmlFor="CC-modal" className="btn">
+        Add Card
       </label>
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
-          <h4>Card Info</h4>
-          <label
-            htmlFor="my-modal-3"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            x
-          </label>
+      {/* Modal Body */}
+      <input type="checkbox" id="CC-modal" className="modal-toggle" />
+      <label htmlFor="CC-modal" className="modal cursor-pointer">
+        <label className="modal-box relative" htmlFor="">
           {/* Form Section */}
+          <h4>Card Info</h4>
           <form onSubmit={onSubmit}>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Card Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Name"
-                className="input input-bordered w-full max-w-xs"
-                {...register('cardName')}
-              />
-              <p className="text-error">
-                {errors.cardName && 'Card Name is required'}
-              </p>
+            <div>
+              <div className="flex flex-col gap-2">
+                <div>
+                  <div className="form-control" />
+                  <label className="input-group">
+                    <span>Name</span>
+                    <input
+                      type="text"
+                      placeholder="Card Name"
+                      className="input input-bordered"
+                      {...register('cardName')}
+                    />
+                  </label>
+                  {errors.cardName ? (
+                    <div>
+                      <div className="alert alert-error shadow-lg">
+                        <div>
+                          <span>Card Name is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+                <div>
+                  <div className="form-control">
+                    <label className="input-group">
+                      <span>Card Number</span>
+                      <input
+                        type="tel"
+                        placeholder="xxxx xxxx xxxx xxxx"
+                        className="input input-bordered w-full max-w-xs"
+                        {...register('cardNumber')}
+                      />
+                    </label>
+                    {errors.cardNumber ? (
+                      <div>
+                        <div className="alert alert-error shadow-lg">
+                          <div>
+                            <span>Card Number is required</span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                <div>
+                  <div className="form-control">
+                    <label className="input-group">
+                      <span>Expiration Date</span>
+                      <input
+                        type="text"
+                        placeholder="MM/YYYY"
+                        className="input input-bordered w-full max-w-xs"
+                        {...register('expirationDate')}
+                      />
+                    </label>
+                    {errors.expirationDate ? (
+                      <div>
+                        <div className="alert alert-error shadow-lg">
+                          <div>
+                            <span>Expiration Date is required</span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                <div>
+                  <div className="form-control">
+                    <label className="input-group">
+                      <span>CVC</span>
+                      <input
+                        type="text"
+                        placeholder="123"
+                        className="input input-bordered w-full max-w-xs"
+                        {...register('CVC')}
+                      />
+                    </label>
+                    {errors.CVC ? (
+                      <div>
+                        <div className="alert alert-error shadow-lg">
+                          <div>
+                            <span>CVC is required</span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Card Number</span>
-              </label>
-              <input
-                type="tel"
-                placeholder="xxxx xxxx xxxx xxxx"
-                className="input input-bordered w-full max-w-xs"
-                {...register('cardNumber')}
-              />
-              <p className="text-error">{errors.cardNumber?.message}</p>
+            <div>
+              <button type="submit" className="btn">
+                Send
+              </button>
             </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Expiration Date</span>
-              </label>
-              <input
-                type="text"
-                placeholder="MM/YYYY"
-                className="input input-bordered w-full max-w-xs"
-                {...register('expirationDate')}
-              />
-              <p className="text-error">{errors.expirationDate?.message}</p>
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">CVC</span>
-              </label>
-              <input
-                type="text"
-                placeholder="123"
-                className="input input-bordered w-full max-w-xs"
-                {...register('CVC')}
-              />
-              <p className="text-error">{errors.CVC?.message}</p>
-            </div>
-            <button type="submit" className="btn">
-              Send
-            </button>
           </form>
-        </div>
-      </div>
+        </label>
+      </label>
     </div>
   );
 };
