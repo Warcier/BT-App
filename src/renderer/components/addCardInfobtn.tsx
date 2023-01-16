@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
+import { v4 as uuidv4 } from 'uuid';
 import { db } from '../firebase';
-
 /*
 #TODO
   ## add dynamic way to increment the amount of card added to the database
@@ -36,7 +36,7 @@ const AddCardInfoBtn = () => {
   const onSubmit = handleSubmit(async (data) => {
     // Add a new document in collection "cities"
     // TODO: Automatically assign a unique id to the document
-    await setDoc(doc(db, 'users', 'users-card-7'), {
+    await setDoc(doc(db, 'users', 'wallet', 'user', `wt${uuidv4()}`), {
       CardName: data.cardName,
       CardNumber: data.cardNumber,
       CVC: data.CVC,

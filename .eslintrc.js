@@ -1,13 +1,17 @@
 module.exports = {
   extends: 'erb',
   rules: {
-    "no-console": "off",
-    "no-restricted-syntax": [
-        "error",
-        {
-            "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
-            "message": "Unexpected property on console object was called"
-        }
+    'eslint-disable-next-line promise/no-nesting': 'off',
+    'eslint-disable-next-line promise/catch-or-return': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    'no-console': 'off',
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector:
+          "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        message: 'Unexpected property on console object was called',
+      },
     ],
     // A temporary hack related to IDE not resolving correct package.json
     'import/no-extraneous-dependencies': 'off',
