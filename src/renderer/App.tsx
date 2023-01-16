@@ -5,6 +5,7 @@ import Wallet from './pages/Wallet';
 import Home from './pages/Home';
 import Navbar from './components/navbar';
 import Receipts from './pages/Reciept';
+import Personal from './pages/personalInfo'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
               <Route path="/wallet" element={<Wallet />} />
               <Route path="/family" element={<FamilySpend />} />
               <Route path="/receipt" element={<Receipts />} />
+              <Route path="/personal" element={<Personal />} />
             </Routes>
           </main>
         </div>

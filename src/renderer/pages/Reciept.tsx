@@ -16,15 +16,15 @@ const Receipts = () => {
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
     // @ts-ignore
     uploadBytes(imageRef, imageUpload)
-      .then((snapshot) => {
-        getDownloadURL(snapshot.ref)
-          .then((url) => {
-            // @ts-ignore
-            setImageList((prev) => [...prev, url]);
-          })
-          .catch((e) => console.log(e));
+    .then((snapshot) => {
+      getDownloadURL(snapshot.ref)
+      .then((url) => {
+        // @ts-ignore
+        setImageList((prev) => [...prev, url]);
       })
       .catch((e) => console.log(e));
+    })
+    .catch((e) => console.log(e));
   };
 
   useEffect(() => {

@@ -62,7 +62,7 @@ const Navbar = () => {
 
             <li className="hover:bg-gray-100">
               <Link
-                to="/"
+                to="/personal"
                 className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
               >
                 <FontAwesomeIcon icon={faHome} />
