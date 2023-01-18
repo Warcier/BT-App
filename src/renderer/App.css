@@ -4,7 +4,7 @@
 
 .btn
 {
-  @apply rounded-full border-2 bg-Flame py-2 px-3 uppercase text-sm font-bold cursor-pointer tracking-wider
+  @apply rounded-full text-EerieBlack space-x-1 border-2 bg-White py-0.5 px-2 uppercase text-sm font-bold cursor-pointer tracking-wider
 }
 
 .image {
