@@ -26,11 +26,11 @@ module.exports = {
     themes: [
       {
         daisytheme: {
-          primary: '#eb5e28',
-          secondary: '#ccc5b9',
-          accent: '#252422',
-          neutral: '#403D39',
-          'base-100': '#fffcf2',
+          primary: '#403D39',
+          secondary: '#3D5A80',
+          accent: '#CCC5b9',
+          neutral: '#CCC5B9',
+          'base-100': '#252422',
           info: '#42A2D1',
           success: '#84cc16',
           warning: '#E17509',

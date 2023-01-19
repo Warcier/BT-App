@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AddCardInfoBtn from 'renderer/components/addCardInfobtn';
-import GetCardDetail from '../components/getCardDetail';
+import CardDetailTable from '../components/table/CardDetailTable';
 
-const FamilySpend = () => {
+function FamilySpend() {
   return (
     <div>
       <div className="h-screen flex flex-col items-center justify-center">
@@ -12,14 +11,11 @@ const FamilySpend = () => {
           Home
         </Link>
         <div>
-          <AddCardInfoBtn />
-        </div>
-        <div>
-          <GetCardDetail />
+          <CardDetailTable />
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default FamilySpend;

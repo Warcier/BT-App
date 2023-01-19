@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 
-const GetCardDetail = () => {
+function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const docRef = collection(db, 'users');
@@ -65,6 +65,6 @@ const GetCardDetail = () => {
       </div>
     </div>
   );
-};
+}
 
-export default GetCardDetail;
+export default CardDetailTable;

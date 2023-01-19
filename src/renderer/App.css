@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn
-{
-  @apply rounded-full border-2 bg-Flame py-2 px-3 uppercase text-sm font-bold cursor-pointer tracking-wider
-}
 
 .image {
   width: 300px;

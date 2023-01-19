@@ -4,7 +4,7 @@ import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
-const Receipts = () => {
+function Receipts() {
   //
   const [imageUpload, setImageUpload] = useState<FileList>(null);
   const [imageList, setImageList] = useState([]);
@@ -16,15 +16,15 @@ const Receipts = () => {
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
     // @ts-ignore
     uploadBytes(imageRef, imageUpload)
-    .then((snapshot) => {
-      getDownloadURL(snapshot.ref)
-      .then((url) => {
-        // @ts-ignore
-        setImageList((prev) => [...prev, url]);
+      .then((snapshot) => {
+        getDownloadURL(snapshot.ref)
+          .then((url) => {
+            // @ts-ignore
+            setImageList((prev) => [...prev, url]);
+          })
+          .catch((e) => console.log(e));
       })
       .catch((e) => console.log(e));
-    })
-    .catch((e) => console.log(e));
   };
 
   useEffect(() => {
@@ -71,6 +71,6 @@ const Receipts = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Receipts;

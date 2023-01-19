@@ -1,7 +1,8 @@
 module.exports = {
   extends: 'erb',
   rules: {
-    'eslint-disable-next-line jsx-a11y/label-has-associated-control': 'off'
+    'eslint-disable-next-line react/jsx-props-no-spreading': 'off',
+    'eslint-disable-next-line jsx-a11y/label-has-associated-control': 'off',
     'eslint-disable-next-line promise/no-nesting': 'off',
     'eslint-disable-next-line promise/catch-or-return': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
