@@ -3,6 +3,7 @@ import PInfoModal from '../components/modal/PInfoModal';
 import SetBudgetModal from '../components/modal/SetBudgetModal';
 import SavingCard from '../components/SavingCard';
 import CCardModal from '../components/modal/CCardModal';
+import CCard from '../components/CCard';
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         <SetBudgetModal />
         <SavingCard />
         <CCardModal />
+        <CCard />
       </div>
     </div>
   );
