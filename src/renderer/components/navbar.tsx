@@ -6,6 +6,7 @@ import {
   faWallet,
   faUser,
   faBook,
+  faReceipt
 } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
@@ -52,10 +53,10 @@ const Navbar = () => {
 
           <li className="hover:bg-gray-100">
             <Link
-              to="/"
+              to="/receipt"
               className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
             >
-              <FontAwesomeIcon icon={faHome} />
+              <FontAwesomeIcon icon={faReceipt} />
             </Link>
           </li>
 
