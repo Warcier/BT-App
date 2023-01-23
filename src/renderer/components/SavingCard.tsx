@@ -16,10 +16,15 @@ function SavingCard() {
   });
 
   return (
-    <div className="stats shadow">
-      <div className="stat">
-        <div className="stat-title">Saving</div>
-        <div className="stat-value">{savings}</div>
+    <div className="stats bg-secondary shadow ">
+      <div className="stat ">
+        <div className="stat-title text-xl ">Spending Limits</div>
+        <progress
+          className="progress progress-accent w-56"
+          value={savings}
+          max="1000"
+        />
+        <span> ${savings} out of $1000 </span>
       </div>
     </div>
   );

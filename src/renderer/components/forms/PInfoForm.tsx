@@ -11,7 +11,6 @@ interface IFormInputs {
   age: string;
   phoneNumber: number;
   address: string;
-  budget: number;
 }
 
 const schema = Joi.object({
@@ -19,7 +18,6 @@ const schema = Joi.object({
   age: Joi.number().required(),
   phoneNumber: Joi.number().required(),
   address: Joi.string().required(),
-  budget: Joi.number().required(),
 });
 function PInfoForm() {
   const {
@@ -38,22 +36,7 @@ function PInfoForm() {
       age: data.age,
       phoneNumber: data.phoneNumber,
       address: data.address,
-      budget: data.budget,
     });
-
-    // #TODO temporary indicator for data submission
-    // alert('data added');
-
-    // const getCardData = () => {
-    //  //ReadData
-    //    const data = {
-    //      fullName: 'Susan',
-    //      age: 34,
-    //      phoneNumber: 87654321,
-    //      address: 'TungChung',
-    //      budget: 9000,
-    //    }
-    // };
   });
 
   return (

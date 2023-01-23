@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
+import CCardModal from '../modal/CCardModal';
 
 function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const docRef = collection(db, 'users');
+  const docRef = collection(db, 'users/wallet/user');
 
   const onRefresh = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -21,7 +22,6 @@ function CardDetailTable() {
         })
       );
     };
-
     if (loading) {
       getCardData().catch((e) => console.log(`error in fetching data:\n${e}`));
       setLoading(false);
@@ -32,7 +32,7 @@ function CardDetailTable() {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table table-compact w-full">
+        <table className="table table-zebra text-red w-full">
           <thead>
             <tr>
               <th>#</th>

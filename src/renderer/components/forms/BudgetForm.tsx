@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
-import { v4 as uuidv4 } from 'uuid';
 import { db } from '../../firebase';
 
 interface IFormInputs {

@@ -38,7 +38,7 @@ function AddCardForm() {
   const onSubmit = handleSubmit(async (data) => {
     // Add a new document in collection "cities"
     // TODO: Automatically assign a unique id to the document
-    await setDoc(doc(db, 'users', 'wallet', 'user', `wt${uuidv4()}`), {
+    await setDoc(doc(db, 'users', 'wallet', 'user', `cc${uuidv4()}`), {
       CardName: data.cardName,
       CardNumber: data.cardNumber,
       CVC: data.CVC,
