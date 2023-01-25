@@ -9,15 +9,15 @@ function SavingCard() {
     const snapshot = onSnapshot(
       doc(db, 'users', 'personal', 'budget', 'setBudget'),
       { includeMetadataChanges: true },
-      (doc) => {
-        setSavings(doc.get('budget_amount'));
+      (data) => {
+        setSavings(data.get('budget_amount'));
       }
     );
   });
 
   return (
-    <div className="stats bg-secondary shadow ">
-      <div className="stat ">
+    <div className="stats bg-secondary shadow">
+      <div className="stat">
         <div className="stat-title text-xl ">Spending Limits</div>
         <progress
           className="progress progress-accent w-56"

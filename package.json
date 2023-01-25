@@ -117,6 +117,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.5",
     "react-router-dom": "^6.4.0",
+    "recharts": "^2.3.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
