@@ -11,7 +11,7 @@ import {
 const Navbar = () => {
   return (
     <div>
-      <aside className="flex flex-col items-center bg-white text-gray-700 shadow h-full">
+      <aside className="flex flex-col bg-EerieBlack text-White shadow h-full w-44">
         <div className="h-16 flex items-center w-full">
           <a className="h-6 w-6 mx-auto" href="http://svelte.dev/">
             <img
@@ -23,48 +23,33 @@ const Navbar = () => {
         </div>
 
         <ul>
-          <li className="hover:bg-gray-100">
+          <li className="hover:bg-GunMetal w-44">
             <Link
               to="/"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
+              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
               <FontAwesomeIcon icon={faHome} />
+              <p className="font">Home</p>
             </Link>
           </li>
 
-          <li className="hover:bg-gray-100">
+          <li className="hover:bg-GunMetal w-44">
             <Link
               to="/wallet"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
+              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
               <FontAwesomeIcon icon={faWallet} />
+              <p className="font-serif">Wallet</p>
             </Link>
           </li>
 
-          <li className="hover:bg-gray-100">
+          <li className="hover:bg-GunMetal w-44">
             <Link
               to="/family"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
+              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
               <FontAwesomeIcon icon={faUser} />
-            </Link>
-          </li>
-
-          <li className="hover:bg-gray-100">
-            <Link
-              to="/"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
-            >
-              <FontAwesomeIcon icon={faHome} />
-            </Link>
-          </li>
-
-          <li className="hover:bg-gray-100">
-            <Link
-              to="/"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
-            >
-              <FontAwesomeIcon icon={faHome} />
+              <p className="font-serif">Profile</p>
             </Link>
           </li>
         </ul>
