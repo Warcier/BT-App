@@ -49,10 +49,10 @@ const Receipts = () => {
   return (
     <div>
       <div className="flex items-center justify-center">
-        <h1>Upload your invoice/receipt:</h1>
         <input
           ref={inputRef}
           type="file"
+          className="file-input file-input-bordered file-input-info w-full max-w-lg"
           onChange={(event) => {
             // @ts-ignore
             setImageUpload(event.target.files[0]);
