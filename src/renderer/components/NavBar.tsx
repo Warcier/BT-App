@@ -6,10 +6,10 @@ import {
   faWallet,
   faUser,
   faBook,
-  faReceipt
+  faReceipt,
 } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => {
+const NavBar = () => {
   return (
     <div>
       <aside className="flex flex-col bg-EerieBlack text-White shadow h-full w-44">
@@ -50,24 +50,7 @@ const Navbar = () => {
               className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
               <FontAwesomeIcon icon={faUser} />
-            </Link>
-          </li>
-
-          <li className="hover:bg-gray-100">
-            <Link
-              to="/"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
-            >
-              <FontAwesomeIcon icon={faHome} />
-            </Link>
-          </li>
-
-          <li className="hover:bg-gray-100">
-            <Link
-              to="/"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full"
-            >
-              <FontAwesomeIcon icon={faHome} />
+              <p className="font-serif">Profile</p>
             </Link>
           </li>
         </ul>
@@ -76,4 +59,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

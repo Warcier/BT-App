@@ -8,16 +8,15 @@ import SpendingGraph from '../components/graph/SpendingGraph';
 
 function Home() {
   return (
-    <div>
+    <>
       <div className="h-screen flex items-center justify-center bg-White space-x-2">
         <h1 className="text-EerieBlack-500 ">
           Hello Tailwind
           <br />
+          <CCard />
         </h1>
-        <FontAwesomeIcon icon={faHome} />
       </div>
-    </div>
-
+    </>
   );
 }
 

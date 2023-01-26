@@ -4,14 +4,8 @@ import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
-<<<<<<< HEAD
-function Receipts() {
-  //
-  const [imageUpload, setImageUpload] = useState<FileList>(null);
-=======
 const Receipts = () => {
   const [imageUpload, setImageUpload] = useState<FileList>();
->>>>>>> master
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, 'images/'); // Referencing firebase storage path
   const inputRef = useRef(null); // Used for reset file input later
@@ -91,6 +85,6 @@ const Receipts = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Receipts;
