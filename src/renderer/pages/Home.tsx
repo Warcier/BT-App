@@ -10,8 +10,7 @@ function Home() {
   return (
     <div>
       <div className="h-screen flex items-center justify-center bg-gray-200">
-        <SavingCard />
-        <SpendingGraph />
+        Home
       </div>
     </div>
   );

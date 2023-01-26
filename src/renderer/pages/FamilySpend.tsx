@@ -1,6 +1,6 @@
 import React from 'react';
 import CardDetailTable from '../components/table/CardDetailTable';
-import SavingCard from '../components/SavingCard';
+
 
 function FamilySpend() {
   return (
@@ -8,7 +8,6 @@ function FamilySpend() {
       <div className="h-screen flex flex-col items-center justify-center">
         <div>
           <CardDetailTable />
-          <SavingCard />
         </div>
       </div>
     </div>
