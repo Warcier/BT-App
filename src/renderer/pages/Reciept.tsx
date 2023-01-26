@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
-const Receipts = () => {
+<<<<<<< HEAD
+function Receipts() {
   //
   const [imageUpload, setImageUpload] = useState<FileList>(null);
+=======
+const Receipts = () => {
+  const [imageUpload, setImageUpload] = useState<FileList>();
+>>>>>>> master
   const [imageList, setImageList] = useState([]);
-  const imageListRef = ref(storage, 'images/');
+  const imageListRef = ref(storage, 'images/'); // Referencing firebase storage path
+  const inputRef = useRef(null); // Used for reset file input later
 
   const uploadImage = () => {
     if (imageUpload == null) return;
@@ -42,18 +48,32 @@ const Receipts = () => {
       .catch((e) => console.log(e));
   }, []);
 
+  // const refresh = () => {
+  //   window.location.reload();
+  // }
+
   return (
     <div>
       <div className="flex items-center justify-center">
         <h1>Upload your invoice/receipt:</h1>
         <input
+          ref={inputRef}
           type="file"
           onChange={(event) => {
             // @ts-ignore
             setImageUpload(event.target.files[0]);
           }}
         />
-        <button type="submit" onClick={uploadImage} className="btn">
+        <button
+          type="submit"
+          className="btn"
+          onClick={() => {
+            uploadImage();
+            // Reset file input field and imageUpload value
+            setImageUpload(null);
+            inputRef.current.value = null;
+          }}
+        >
           Upload
         </button>
       </div>
@@ -71,6 +91,6 @@ const Receipts = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Receipts;

@@ -3,14 +3,15 @@ import './App.css';
 import FamilySpend from './pages/FamilySpend';
 import Wallet from './pages/Wallet';
 import Home from './pages/Home';
-import Navbar from './components/navbar';
+import NavBar from './components/navBar';
 import Receipts from './pages/Reciept';
+import PInfoForm from './components/forms/PInfoForm'
 
 export default function App() {
   return (
     <HashRouter>
       <div className="h-screen w-screen flex bg-gray-200">
-        <Navbar />
+        <NavBar />
         <div className="container">
           <main className="bg-black">
             <Routes>
