@@ -71,13 +71,13 @@ const Receipts = () => {
           Upload
         </button>
       </div>
-      {imageList.map((url) => {
-        return (
-          <div className="flex items-center justify-center">
-            <img src={url} className="image" alt="" />
-          </div>
-        );
-      })}
+      <div className="container gap-4 grid grid-cols-3 mx-auto space-y-2 space-y-0 ">
+        {imageList.map((url) => {
+          return (
+            <img src={url} className="w-full rounded hover:opacity-50" alt="" />
+          );
+        })}
+      </div>
       <div className="flex items-center justify-center">
         <Link to="/" className="btn">
           Home
