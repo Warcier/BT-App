@@ -1,21 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import AddCardInfoBtn from '../components/addCardInfobtn';
+import PInfoModal from '../components/modal/PInfoModal';
+import SetBudgetModal from '../components/modal/SetBudgetModal';
+import SavingCard from '../components/SavingCard';
+import CCardModal from '../components/modal/CCardModal';
+import CCard from '../components/CCard';
+import SpendingGraph from '../components/graph/SpendingGraph';
 
-const Home = () => {
+function Home() {
   return (
     <div>
+<<<<<<< HEAD
+      <div className="h-screen flex items-center justify-center bg-gray-200">
+        Home
+=======
       <div className="h-screen flex items-center justify-center bg-White space-x-2">
         <h1 className="text-EerieBlack-500 ">
           Hello Tailwind
           <br />
         </h1>
         <FontAwesomeIcon icon={faHome} />
+>>>>>>> master
       </div>
     </div>
   );
-};
+}
 
 export default Home;
