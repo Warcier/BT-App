@@ -12,7 +12,7 @@ import {
 const NavBar = () => {
   return (
     <div>
-      <aside className="flex flex-col bg-EerieBlack text-White shadow h-full w-44">
+      <aside className="flex flex-col bg-[#384D48] text-White shadow h-full w-44">
         <div className="h-16 flex items-center w-full">
           <a className="h-6 w-6 mx-auto" href="http://svelte.dev/">
             <img

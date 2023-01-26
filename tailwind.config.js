@@ -14,7 +14,7 @@ module.exports = {
       DarkSkyBlue: '#98C1D9',
       LightCyan: '#E0FBFC',
       GunMetal: '#293241',
-      White: '#FFFFFF',
+      White: '#FFFFFF'
     },
     fontFamily: {
       sans: ['Helvetica', 'Arial', 'sans-serif'],
@@ -31,7 +31,7 @@ module.exports = {
           secondary: '#3D5A80',
           accent: '#CCC5b9',
           neutral: '#CCC5B9',
-          'base-100': '#252422',
+          'base-100': '#ACAD94',
           info: '#42A2D1',
           success: '#84cc16',
           warning: '#E17509',

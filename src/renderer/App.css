@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn
-{
-  @apply rounded-full text-EerieBlack space-x-1 border-2 bg-White py-0.5 px-2 uppercase text-sm font-bold cursor-pointer tracking-wider
-}
-
 .image {
   width: 300px;
   margin: 10px;
