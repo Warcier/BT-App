@@ -6,35 +6,28 @@ import TextTag from '../TextTag';
 
 function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+
   const docRef = collection(db, 'users/wallet/user');
 
   const onRefresh = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    setLoading(true);
   };
 
   useEffect(() => {
-    const getCardData = async () => {
-      const querySnapshot = await getDocs(docRef);
+    const unsubscribe = onSnapshot(docRef, (doc) => {
       setTable(
-        querySnapshot.docs.map((doc) => {
-          return { ...doc.data(), id: doc.id };
+        doc.docs.map((docs) => {
+          return { ...docs.data(), id: docs.id };
         })
       );
-    };
-    if (loading) {
-      getCardData().catch((e) => console.log(`error in fetching data:\n${e}`));
-      setLoading(false);
-      console.log('Rendered after true');
-    }
-  }, [loading]);
+    });
+  });
 
   return (
     <div>
       <div className="container border-2 rounded-md border-LightCyan">
         <div className="overflow-x-auto">
-          <table className="table table-zebra w-[74rem] h-[15rem] text-center text-accent ">
+          <table className="table table-zebra w-[74rem] h-[15rem] text-center text-EerieBlack ">
             <thead>
               <tr>
                 <th>#</th>
@@ -61,12 +54,6 @@ function CardDetailTable() {
             </tbody>
           </table>
         </div>
-      </div>
-      <div className="flex justify-center">
-        {/* TODO: automatically refresh on submit the data */}
-        <button onClick={onRefresh} className="btn">
-          Refresh
-        </button>
       </div>
     </div>
   );
