@@ -3,17 +3,17 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 
 function SavingCard() {
-  const [savings, setSavings] = useState(0);
+  const [savings, setSavings] = useState<any>([]);
 
   useEffect(() => {
     const snapshot = onSnapshot(
       doc(db, 'users', 'personal', 'budget', 'setBudget'),
       { includeMetadataChanges: true },
       (data) => {
-        setSavings(data.get('budget_amount'));
+        setSavings(data.get('budgetInfo'));
       }
     );
-  });
+  }, []);
 
   return (
     <div className="stats bg-secondary shadow">
@@ -21,10 +21,10 @@ function SavingCard() {
         <div className="stat-title text-xl ">Spending Limits</div>
         <progress
           className="progress progress-accent w-56"
-          value={savings}
+          value={1}
           max="1000"
         />
-        <span> ${savings} out of $1000 </span>
+        <span> ${1} out of $1000 </span>
       </div>
     </div>
   );

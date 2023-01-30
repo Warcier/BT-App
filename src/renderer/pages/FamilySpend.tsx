@@ -1,5 +1,6 @@
 import React from 'react';
 import CardDetailTable from '../components/table/CardDetailTable';
+import CCardModal from '../components/modal/CCardModal';
 
 function FamilySpend() {
   return (
@@ -8,6 +9,7 @@ function FamilySpend() {
         <h1 className="text-blue-500">Family Expenditure</h1>
         <div>
           <CardDetailTable />
+          <CCardModal />
         </div>
       </div>
     </div>
