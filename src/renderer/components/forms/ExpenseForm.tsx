@@ -1,36 +1,63 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { format } from 'date-fns';
 import { doc, setDoc } from 'firebase/firestore';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi/dist/joi';
 import Joi from 'joi';
-import DatePicker from 'react-datepicker';
+import { DayPicker } from 'react-day-picker';
 import { db } from '../../firebase';
+import 'react-day-picker/dist/style.css';
 
 interface IFormInputs {
-  Expense: string;
+  expense: string;
   amount: number;
   expenseType: string;
-  date: Date;
+  date: string;
 }
 const schema = Joi.object({
-  cardName: Joi.string().required(),
-  cardNumber: Joi.string().creditCard().required(),
-  expirationDate: Joi.string().required(),
-  CVC: Joi.number().required(),
+  expense: Joi.string().required(),
+  amount: Joi.number().required(),
+  expenseType: Joi.required(),
+  date: Joi.date(),
 });
 const ExpenseForm = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  const [selected, setSelected] = useState<Date>();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState,
+    formState: { isSubmitSuccessful, errors },
   } = useForm<IFormInputs>({
     resolver: joiResolver(schema),
   });
 
   // Handle Submit Action for the form
-  const onSubmit = handleSubmit(async (data) => {});
+  const onSubmit = handleSubmit(async (data) => {
+    await setDoc(doc(db, 'users', 'expenditure', 'transaction', `spend-1`), {
+      expenseInfo: {
+        expense: data.expense,
+        amount: data.amount,
+        expenseType: data.expenseType,
+        date: format(selected, 'P'),
+        timestamp: new Date(),
+      },
+    });
+    console.log('send');
+    alert('data added');
+  });
+
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({
+        expense: '',
+        amount: '',
+        expenseType: '',
+        date: '',
+      });
+    }
+  }, [formState, reset]);
 
   return (
     <>
@@ -38,18 +65,18 @@ const ExpenseForm = () => {
       <form onSubmit={onSubmit}>
         <div>
           <div className="flex flex-col gap-2">
-            <div>
+            <div className="">
               <div className="form-control" />
               <label className="input-group">
                 <span>Expense</span>
                 <input
                   type="text"
-                  placeholder="Card Name"
+                  wr
                   className="input input-bordered"
-                  {...register('Expense')}
+                  {...register('expense')}
                 />
               </label>
-              {errors.Expense ? (
+              {errors.expense ? (
                 <div>
                   <div className="alert alert-error shadow-lg">
                     <div>
@@ -107,15 +134,11 @@ const ExpenseForm = () => {
                 <label className="input-group">
                   <span>Date</span>
                 </label>
-                {errors.date ? (
-                  <div>
-                    <div className="alert alert-error shadow-lg">
-                      <div>
-                        <span>CVC is required</span>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
+                <DayPicker
+                  mode="single"
+                  selected={selected}
+                  onSelect={setSelected}
+                />
               </div>
             </div>
           </div>

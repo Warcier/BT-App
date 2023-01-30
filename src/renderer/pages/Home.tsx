@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import PInfoModal from '../components/modal/PInfoModal';
 import SetBudgetModal from '../components/modal/SetBudgetModal';
 import SavingCard from '../components/SavingCard';
