@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 
-function SavingCard() {
+function SpendingCard() {
   const [savings, setSavings] = useState<any>([]);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ function SavingCard() {
   );
 }
 
-export default SavingCard;
+export default SpendingCard;
