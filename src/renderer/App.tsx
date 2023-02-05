@@ -13,7 +13,7 @@ export default function App() {
       <div className="h-screen w-screen flex bg-gray-200">
         <NavBar />
         <div className="container">
-          <main className="bg-black">
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/wallet" element={<Wallet />} />

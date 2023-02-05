@@ -107,6 +107,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.8",
     "@hookform/resolvers": "^2.9.10",
+    "@types/react-table": "^7.7.14",
     "clsx": "^1.2.1",
     "daisyui": "^2.46.1",
     "date-fns": "^2.29.3",
@@ -121,6 +122,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.5",
     "react-router-dom": "^6.4.0",
+    "react-table": "^7.8.0",
     "recharts": "^2.3.2",
     "uuid": "^9.0.0"
   },

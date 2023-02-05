@@ -14,7 +14,7 @@ module.exports = {
       DarkSkyBlue: '#98C1D9',
       LightCyan: '#E0FBFC',
       GunMetal: '#293241',
-      White: '#FFFFFF'
+      Navbar: '#384D48',
     },
     fontFamily: {
       sans: ['Helvetica', 'Arial', 'sans-serif'],

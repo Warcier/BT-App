@@ -1,7 +1,7 @@
 import React from 'react';
-import AddBalanceForm from '../forms/AddBalanceForm';
+import BalanceForm from '../forms/BalanceForm';
 
-const SetBudgetModal = ({balance}) => {
+const SetBalanceModal = () => {
   return (
     <>
       {/* The button to open modal */}
@@ -14,7 +14,7 @@ const SetBudgetModal = ({balance}) => {
       <label htmlFor="my-modal-4" className="modal cursor-pointer">
         <label className="modal-box relative" htmlFor="">
           {/* Modal Body Starts */}
-          <AddBalanceForm balance={balance} />
+          <BalanceForm />
           {/* Modal Body End */}
         </label>
       </label>
@@ -22,4 +22,4 @@ const SetBudgetModal = ({balance}) => {
   );
 }
 
-export default SetBudgetModal;
+export default SetBalanceModal;

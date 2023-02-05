@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi, { number } from 'joi';
@@ -6,18 +6,15 @@ import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 interface IFormInputs {
-  balance: number;
+  addbalance: number;
 }
 
 const schema = Joi.object({
-  balance: Joi.number().required(),
+  addbalance: Joi.number().required(),
 });
 
-const BudgetForm = ({ balance }) => {
+const BalanceForm = () => {
   const [currentBalance, setCurrentBalance] = useState(0);
-  const [addCurrentBalance, setAddCurrentBalance] = useState(0);
-
-  setCurrentBalance(balance);
 
   const {
     register,
@@ -27,36 +24,45 @@ const BudgetForm = ({ balance }) => {
     resolver: joiResolver(schema),
   });
 
-  async function setBalance(addedBalance) {
-    const mutationBalance = currentBalance + addCurrentBalance;
+  async function newBalance(addingBalance: number) {
+    const mutationBalance = currentBalance + addingBalance;
     await setDoc(doc(db, 'users', 'personal', 'balance', `setBalance`), {
       current_balance: mutationBalance,
     });
   }
 
+  async function getCurrentBalance() {
+    const snapshot = onSnapshot(
+      doc(db, 'users', 'personal', 'balance', 'setBalance'),
+      { includeMetadataChanges: true },
+      (data) => {
+        setCurrentBalance(data.get('current_balance'));
+      }
+    );
+  }
 
   const onSubmit = handleSubmit(async (data) => {
-    await setAddCurrentBalance(data.balance);
-    await setBalance(addCurrentBalance);
+    await newBalance(data.addbalance);
   });
+
+  useEffect(() => {
+    getCurrentBalance().catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center">
       <form onSubmit={onSubmit}>
         <div className="form-control">
-          <label className="label">
-            <span className="label-text">{currentBalance}{addCurrentBalance}</span>
-          </label>
           <label className="input-group">
             <span>Add Balance</span>
             <input
               type="text"
               placeholder="Balance"
               className="input input-bordered"
-              {...register('balance')}
+              {...register('addbalance')}
             />
           </label>
-          {errors.balance ? (
+          {errors.addbalance ? (
             <div>
               <div className="alert alert-error shadow-lg">
                 <div>
@@ -74,6 +80,6 @@ const BudgetForm = ({ balance }) => {
       </form>
     </div>
   );
-}
+};
 
-export default BudgetForm;
+export default BalanceForm;
