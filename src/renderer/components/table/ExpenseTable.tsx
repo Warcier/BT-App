@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTable } from 'react-table';
+import { usePagination, useTable } from 'react-table';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 
@@ -10,6 +10,12 @@ interface Expense {
   expenseType: string;
 }
 
+const formatMoney = (value: any) => {
+  if (value) {
+    return `$${value.toFixed(2)}`;
+  }
+  return '-';
+};
 const ExpenseTable = () => {
   const [table, setTable] = useState<any[]>([]);
   const data = useMemo(() => [...table], [table]);
@@ -25,29 +31,6 @@ const ExpenseTable = () => {
     });
   }, []);
 
-  // const data = React.useMemo(
-  //  () => [
-  //    {
-  //      expense: 'Bus',
-  //      amount: 12,
-  //      date: '10/12/23',
-  //      expenseType: 'Transportation',
-  //    },
-  //    {
-  //      expense: 'Hello',
-  //      amount: 'World',
-  //      date: 'World',
-  //      expenseType: 'World',
-  //    },
-  //    {
-  //      expense: 'Hello',
-  //      amount: 'World',
-  //      date: 'World',
-  //      expenseType: 'World',
-  //    },
-  //  ],
-  //  []
-  // );
   const columns = React.useMemo(
     () => [
       {
@@ -57,6 +40,7 @@ const ExpenseTable = () => {
       {
         Header: 'Amount',
         accessor: 'expenseInfo.amount',
+        Cell: ({ value }) => formatMoney(value),
       },
       {
         Header: 'Date',
@@ -70,16 +54,29 @@ const ExpenseTable = () => {
     []
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+    nextPage,
+    previousPage,
+    canPreviousPage,
+    canNextPage,
+    state: { pageSize },
+  } = useTable(
+    {
       columns,
       data,
-    });
+      initialState: { pageSize: 5},
+    },
+    usePagination
+  );
 
   return (
     <>
       <div className="flex flex-col">
-        {console.log(data)}
         <div className="overflow-x-auto">
           <div className="p-1.5 w-full inline-block align-middle">
             <div className="overflow-hidden border border-transparent rounded-lg">
@@ -105,7 +102,7 @@ const ExpenseTable = () => {
                   className="bg-transparent divide-y divide-[#F2F6D0]"
                   {...getTableBodyProps()}
                 >
-                  {rows.map((row) => {
+                  {page.map((row, i) => {
                     prepareRow(row);
                     return (
                       <tr {...row.getRowProps()}>
@@ -124,6 +121,26 @@ const ExpenseTable = () => {
                   })}
                 </tbody>
               </table>
+              <div className="flex flex-auto items-center justify-center">
+                <div className="basis-4 w-64  ">
+                  <button
+                    onClick={() => previousPage()}
+                    disabled={!canPreviousPage}
+                    className="w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-b-2 border-blue-500 hover:border-blue-600 hover:bg-blue-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+                  >
+                    <span className="mx-auto">Prev</span>
+                  </button>
+                </div>
+                <div className="basis-4 w-64  ">
+                  <button
+                    onClick={() => nextPage()}
+                    disabled={!canNextPage}
+                    className="w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+                  >
+                    <span className="mx-auto">Next</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

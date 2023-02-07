@@ -15,6 +15,20 @@ module.exports = {
       LightCyan: '#E0FBFC',
       GunMetal: '#293241',
       Navbar: '#384D48',
+      white: '#ffffff',
+      blue: {
+        500: '#3b82f6',
+        600: '#2563eb',
+        700: '#1d4ed8',
+        800: '#1e40af',
+      },
+      gray: {
+        800: '#1f2937',
+      },
+      red: {
+        500: '#ef4444',
+        600: '#dc2626',
+      },
     },
     fontFamily: {
       sans: ['Helvetica', 'Arial', 'sans-serif'],
