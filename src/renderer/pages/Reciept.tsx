@@ -4,7 +4,7 @@ import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
-const Receipts = () => {
+function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, 'images/'); // Referencing firebase storage path
@@ -85,6 +85,6 @@ const Receipts = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Receipts;
