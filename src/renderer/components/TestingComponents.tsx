@@ -9,7 +9,6 @@ import ExpenseTable from './table/ExpenseTable';
 import ExpenseModal from './modal/ExpenseModal';
 import BalanceCard from './card/BalanceCard';
 
-
 export {
   PInfoModal,
   SetBudgetModal,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 import SetBalanceModal from '../modal/SetBalanceModal';
@@ -18,15 +18,21 @@ const BalanceCard = () => {
 
   return (
     <>
-      <div className="stats bg-primary text-primary-content">
-        <div className="stat">
-          <div className="stat-title">Current balance</div>
-          <div className="stat-value">${currentBalance}</div>
-          <div className="stat-actions">
-            <SetBalanceModal />
+      <div className=" w-[24rem] h-[15rem] stats bg-primary text-primary-content container items-center justify-center ">
+        <div className="flex flex-col ">
+          <div className="grow">
+            <div className="stat-title font-semibold text-2xl ">Current balance</div>
+          </div>
+          <div>
+            <div className="text-6xl font-bold">${currentBalance}</div>
+          </div>
+          <div>
+            <div className="stat-actions">
+              <SetBalanceModal />
+            </div>
           </div>
         </div>
-
+        <div className="stat items-center justify-center" />
       </div>
     </>
   );

@@ -49,7 +49,7 @@ function SpendingGraph() {
 
   return (
     <>
-      <div className="border rounded-lg text-center p-4 shadow-xl bg-BdazzledBlue">
+      <div className="border rounded-lg text-center text-Flame p-4 shadow-xl bg-BlackOlive">
         <div className="grid grid-cols-2 gap-4 ">
           <div className="left row-span-2 ">Spending Graph</div>
           <div className="right row-span-4 ">

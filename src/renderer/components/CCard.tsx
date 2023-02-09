@@ -7,7 +7,7 @@ import React from 'react';
 
 function CCard() {
   return (
-    <div className="bg-white min-h-screen flex justify-center items-center">
+    <>
       <div className="space-y-16">
         <div className="w-96 h-56 m-auto bg-red-100 relative text-white ">
           <div className="relative rounded-xl object-cover w-full h-full bg-BdazzledBlue" />
@@ -49,7 +49,7 @@ function CCard() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
