@@ -1,51 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import { AreaChart, Area, ResponsiveContainer } from 'recharts';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import {
+  collection,
+  query,
+  orderBy,
+  limit,
+  onSnapshot,
+} from 'firebase/firestore';
 import { db } from '../../firebase';
 
 function SpendingGraph() {
   const [fetchData, setfetchData] = useState([]);
   const data = [
     {
-      name: 'Page A',
+      name: 'expense1',
       uv: fetchData[0],
     },
     {
-      name: 'Page B',
+      name: 'expense2',
       uv: fetchData[1],
     },
     {
-      name: 'Page C',
+      name: 'expense3',
       uv: fetchData[2],
     },
+    {
+      name: 'expense4',
+      uv: fetchData[3],
+    },
+    {
+      name: 'expense5',
+      uv: fetchData[4],
+    },
+    {
+      name: 'expense6',
+      uv: fetchData[5],
+    },
+    {
+      name: 'expense7',
+      uv: fetchData[6],
+    },
   ];
-  9;
 
   useEffect(() => {
     const q = query(
       collection(db, 'users', 'expenditure', 'transaction'),
-      where('amount', '>=', 0)
+      orderBy('expenseInfo.timestamp', 'desc'),
+      limit(7)
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const amount = [];
       querySnapshot.forEach((doc) => {
-        const fetchAmount = doc.get('amount');
+        const fetchAmount = doc.get('expenseInfo.amount');
         amount.push(fetchAmount);
       });
       setfetchData(amount);
     });
-
-    // const unsubscribe = onSnapshot(
-    //   collection(db, 'users', 'expenditure', 'transaction'),
-    //   (docs) => {
-    //     const fetchedData = [];
-    //     docs.forEach((doc) => {
-    //       fetchedData.push(doc.get('amount'));
-    //     });
-    //     setfetchData(fetchedData);
-    //   }
-    // );
-  });
+  }, []);
 
   return (
     <>
