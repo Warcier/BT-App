@@ -60,10 +60,10 @@ function SpendingGraph() {
 
   return (
     <>
-      <div className="border rounded-lg text-center text-Flame p-4 shadow-xl bg-BlackOlive">
+      <div className="rounded-lg text-center text-white shadow-xl bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">
         <div className="grid grid-cols-2 gap-4 ">
-          <div className="left row-span-2 ">Spending Graph</div>
-          <div className="right row-span-4 ">
+          <div className="left row-span-2 p-4">Spending Graph</div>
+          <div className="right row-span-4 p-4">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart
                 width={200}
@@ -79,8 +79,8 @@ function SpendingGraph() {
                 <Area
                   type="monotone"
                   dataKey="uv"
-                  stroke="#8884d8"
-                  fill="#8884d8"
+                  stroke="white"
+                  fill="white"
                 />
               </AreaChart>
             </ResponsiveContainer>

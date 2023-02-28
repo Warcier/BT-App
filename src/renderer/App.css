@@ -11,4 +11,10 @@
 
 html{
   font-family: 'Nunito', sans-serif;
+  background-color: white;
 }
+
+.btn {
+  background: #FFF;
+}
+
