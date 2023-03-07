@@ -18,7 +18,7 @@ const BalanceCard = () => {
 
   return (
     <>
-      <div className=" w-[24.4rem] h-[14.2rem] stats bg-primary text-primary-content container items-center justify-center ">
+      <div className=" w-[24.4rem] h-[13.2rem] stats bg-primary text-primary-content container items-center justify-center ">
         <div className="flex flex-col ">
           <div className="grow">
             <div className="stat-title font-semibold text-2xl ">

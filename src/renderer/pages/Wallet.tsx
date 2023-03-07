@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  SpendingCard,
+  CategoryExpenseCard
 } from '../components/TestingComponents';
 
 const Wallet = () => {
@@ -9,7 +9,7 @@ const Wallet = () => {
     <div>
       <div className="h-screen flex items-center justify-center bg-White space-x-2">
         <h1 className="text-blue-500">
-          <SpendingCard />
+          <CategoryExpenseCard />
         </h1>
       </div>
     </div>

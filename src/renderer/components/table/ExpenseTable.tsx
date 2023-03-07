@@ -69,7 +69,7 @@ const ExpenseTable = () => {
     {
       columns,
       data,
-      initialState: { pageSize: 5},
+      initialState: { pageSize: 8},
     },
     usePagination
   );
@@ -81,7 +81,7 @@ const ExpenseTable = () => {
           <div className="p-1.5 w-full inline-block align-middle">
             <div className="overflow-hidden border border-transparent rounded-lg">
               <table
-                className="w-[50rem] h-[30rem] text-center text-EerieBlack divide-y divide-[#F2F6D0]"
+                className="w-[50rem] h-auto text-center text-EerieBlack divide-y divide-[#F2F6D0]"
                 {...getTableProps()}
               >
                 <thead className="bg-[#e4be9e]">
