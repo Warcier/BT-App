@@ -36,9 +36,9 @@ function SpendingCard() {
   }, []);
 
   return (
-    <div className="stats bg-secondary shadow w-[24.4rem]">
+    <div className="stats text-white bg-gradient-to-r from-blue-300 via-blue-600 to-blue-900 shadow w-[24.4rem]">
       <div className="stat">
-        <div className="stat-title text-xl ">Spending Limits</div>
+        <div className=" text-xl ">Spending Limits</div>
         <progress
           className="progress progress-accent w-[20rem]"
           value={total}
