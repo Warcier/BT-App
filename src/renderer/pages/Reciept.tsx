@@ -64,7 +64,7 @@ function Receipts() {
 
 
   return (
-    <div className="bg-white">
+    <div className="h-max">
       <div className="flex items-center justify-center">
         <input
           ref={inputRef}
