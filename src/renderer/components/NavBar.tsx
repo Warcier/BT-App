@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <div>
       <aside className="flex flex-col bg-[#384D48] text-White shadow h-full w-44 py-10">
-        <ul>
+        <ul className="fixed">
           <li className="hover:bg-GunMetal w-44">
             <Link
               to="/"
