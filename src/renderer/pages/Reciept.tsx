@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 function Receipts() {
@@ -10,6 +12,10 @@ function Receipts() {
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, 'images/'); // Referencing firebase storage path
   const inputRef = useRef(null); // Used for reset file input later
+
+  // Used in image gallery part
+  const [Model, setModel] = useState(false);
+  const [tempImageSrc, setTempImageSrc] = useState('');
 
   const uploadImage = () => {
     if (imageUpload == null) return;
@@ -47,14 +53,18 @@ function Receipts() {
   //   window.location.reload();
   // }
 
-  const [showModal, setShowModal] = useState(false);
 
-  const showImageModal = () => {
-    setShowModal(true);
-  };
+  const getImg = (imgSrc: string) => {
+    setModel(true);
+    setTempImageSrc(imgSrc);
+
+    console.log(imgSrc);
+    console.warn(tempImageSrc);
+  }
+
 
   return (
-    <div>
+    <div className="bg-white">
       <div className="flex items-center justify-center">
         <input
           ref={inputRef}
@@ -78,8 +88,14 @@ function Receipts() {
           Upload
         </button>
       </div>
-      <div className="container gap-4 grid grid-cols-3 mx-auto space-y-2 space-y-0 ">
-        {imageList.map((url) => {
+
+      <div className={ Model ? "model open" : "model"}>
+        <img src={tempImageSrc} />
+        <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
+      </div>
+
+      <div className="gallery">
+        {imageList.map((url, index) => {
           return (
             //<img src="image.jpg" alt="Image" onClick={showImageModal} />
             //{
@@ -90,19 +106,20 @@ function Receipts() {
             //  )
             //}
             //
-            <div className="modal">
-              <img src={url} className="w-full rounded hover:opacity-50" onClick={showImageModal} alt="" />
-              <img src={url} onClick={showImageModal} alt="Image" />
+            <div className="pics" key={index} onClick={() => getImg(url) }>
+              <img src={url} style={{width: '100%'}} />
             </div>
           );
           })
         }
       </div>
+
       <div className="flex items-center justify-center">
         <Link to="/" className="btn">
           Home
         </Link>
       </div>
+
     </div>
   );
 }

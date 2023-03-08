@@ -5,8 +5,9 @@
     "\\src\\main",
     "\\src\\renderer",
     "\\src\\renderer\\components",
+    "\\src\\renderer\\components\\forms",
     "\\src\\renderer\\pages"
   ],
-  "SelectedNode": "\\src\\renderer\\components\\graph",
+  "SelectedNode": "\\src\\renderer\\pages\\Reciept.tsx",
   "PreviewInSolutionExplorer": false
 }
