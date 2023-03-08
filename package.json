@@ -140,7 +140,7 @@
     "autoprefixer": "^10.4.13",
     "browserslist-config-erb": "^0.0.3",
     "chalk": "^4.1.2",
-    "concurrently": "^7.3.0",
+    "concurrently": "^7.6.0",
     "core-js": "^3.24.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",

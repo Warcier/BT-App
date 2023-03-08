@@ -4,6 +4,7 @@ import { storage } from 'renderer/firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
+
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
@@ -46,6 +47,12 @@ function Receipts() {
   //   window.location.reload();
   // }
 
+  const [showModal, setShowModal] = useState(false);
+
+  const showImageModal = () => {
+    setShowModal(true);
+  };
+
   return (
     <div>
       <div className="flex items-center justify-center">
@@ -74,9 +81,22 @@ function Receipts() {
       <div className="container gap-4 grid grid-cols-3 mx-auto space-y-2 space-y-0 ">
         {imageList.map((url) => {
           return (
-            <img src={url} className="w-full rounded hover:opacity-50" alt="" />
+            //<img src="image.jpg" alt="Image" onClick={showImageModal} />
+            //{
+            //  showModal && (
+            //    <div className="modal">
+            //      <img src="image.jpg" alt="Image" />
+            //    </div>
+            //  )
+            //}
+            //
+            <div className="modal">
+              <img src={url} className="w-full rounded hover:opacity-50" onClick={showImageModal} alt="" />
+              <img src={url} onClick={showImageModal} alt="Image" />
+            </div>
           );
-        })}
+          })
+        }
       </div>
       <div className="flex items-center justify-center">
         <Link to="/" className="btn">

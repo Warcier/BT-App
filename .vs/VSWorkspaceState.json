@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\renderer",
+    "\\src\\renderer\\components",
+    "\\src\\renderer\\pages"
+  ],
+  "SelectedNode": "\\src\\renderer\\components\\graph",
+  "PreviewInSolutionExplorer": false
+}
