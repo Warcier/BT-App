@@ -18,12 +18,10 @@ function SpendingCard() {
         const fetchAmount = doc.get('expenseInfo.amount');
         allTransaction.push(fetchAmount);
       });
-      console.log(allTransaction);
       const value = allTransaction.reduce(
         (nextValue, currentValue) => nextValue + currentValue
       );
       setTotal(value);
-      console.log('this is total:', total);
     });
     // Get the budget amount
     const snapshot = onSnapshot(
