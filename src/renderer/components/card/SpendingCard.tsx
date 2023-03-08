@@ -45,7 +45,7 @@ function SpendingCard() {
           max="1000"
         />
         <span>
-          ${total} out of ${budget}{' '}
+          ${total} out of ${budget}
         </span>
       </div>
     </div>

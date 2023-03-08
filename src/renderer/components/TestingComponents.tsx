@@ -8,6 +8,7 @@ import SpendingGraph from './graph/SpendingGraph';
 import ExpenseTable from './table/ExpenseTable';
 import ExpenseModal from './modal/ExpenseModal';
 import BalanceCard from './card/BalanceCard';
+import CategoryExpenseCard from './card/CategoryExpenseCard';
 
 export {
   PInfoModal,
@@ -19,4 +20,5 @@ export {
   ExpenseModal,
   ExpenseTable,
   BalanceCard,
+  CategoryExpenseCard,
 };
