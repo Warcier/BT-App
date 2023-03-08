@@ -66,9 +66,9 @@ module.exports = {
         daisytheme: {
           primary: '#403D39',
           secondary: '#3D5A80',
-          accent: '#CCC5b9',
+          accent: '#FFFFFF',
           neutral: '#CCC5B9',
-          'base-100': '#ACAD94',
+          'base-100': '#FFFFFF',
           info: '#42A2D1',
           success: '#84cc16',
           warning: '#E17509',

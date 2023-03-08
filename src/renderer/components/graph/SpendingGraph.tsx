@@ -62,7 +62,7 @@ function SpendingGraph() {
     <>
       <div className="rounded-lg text-center text-white shadow-xl bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">
         <div className="grid grid-cols-2 gap-4 ">
-          <div className="left row-span-2 p-4">Spending Graph</div>
+          <div className="left row-span-2 p-4 text-xl">Spending Graph</div>
           <div className="right row-span-4 p-4">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart

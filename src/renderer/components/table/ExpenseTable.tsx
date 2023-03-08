@@ -84,7 +84,7 @@ const ExpenseTable = () => {
                 className="w-[50rem] h-[30rem] text-center text-EerieBlack divide-y divide-[#F2F6D0]"
                 {...getTableProps()}
               >
-                <thead className="bg-gradient-to-r from-blue-300 to-blue-900">
+                <thead className="bg-gradient-to-r from-blue-300 to-blue-700">
                   {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                       {headerGroup.headers.map((column) => (

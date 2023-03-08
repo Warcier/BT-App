@@ -12,7 +12,7 @@ import {
 const NavBar = () => {
   return (
     <div>
-      <aside className="flex flex-col bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow h-full w-44">
+      <aside className="flex flex-col bg-gradient-to-r from-blue-700 to-blue-900 text-white shadow h-full w-44 py-10">
         <ul>
           <li className="hover:bg-blue-600 w-44">
             <Link
