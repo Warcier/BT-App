@@ -18,3 +18,7 @@ html{
   background: #FFF;
 }
 
+.btn:hover{
+  background: #caf0f8;
+  border:none;
+}
