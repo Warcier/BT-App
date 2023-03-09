@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { storage } from 'renderer/firebase';
-import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
+import { faXmark, faTrash, faT } from '@fortawesome/free-solid-svg-icons';
+import { bool, boolean } from 'joi';
 
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
@@ -29,10 +29,25 @@ function Receipts() {
             // @ts-ignore
             setImageList((prev) => [...prev, url]);
           })
-          .catch((e) => console.log(e));
+          .catch((e) => console.warn(e));
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.warn(e));
   };
+
+  const deleteImage = () => {
+    const desertRef = ref(storage, tempImageSrc);
+
+    deleteObject(desertRef).then(() => {
+        console.log('Delete Sucessfully!');
+        setModel(false);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
+
+  // This is used to load the image when user first time enter this page
 
   useEffect(() => {
     listAll(imageListRef)
@@ -43,28 +58,27 @@ function Receipts() {
               // @ts-ignore
               setImageList((prev) => [...prev, url]);
             })
-            .catch((e) => console.log(e));
+            .catch((e) => console.warn(e));
         });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.warn(e));
   }, []);
+
 
   // const refresh = () => {
   //   window.location.reload();
   // }
 
-
-  const getImg = (imgSrc: string) => {
+  const getImg = (imgSrc: string, index: number) => {
     setModel(true);
     setTempImageSrc(imgSrc);
 
-    console.log(imgSrc);
-    console.warn(tempImageSrc);
-  }
-
+    console.log([imgSrc, index]);
+    // console.warn(tempImageSrc);
+  };
 
   return (
-    <div className="h-max">
+    <div className="h-full">
       <div className="flex items-center justify-center">
         <input
           ref={inputRef}
@@ -89,37 +103,28 @@ function Receipts() {
         </button>
       </div>
 
-      <div className={ Model ? "model open" : "model"}>
+      <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />
+        <FontAwesomeIcon icon={faTrash} onClick={deleteImage} />
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
 
       <div className="gallery">
         {imageList.map((url, index) => {
           return (
-            //<img src="image.jpg" alt="Image" onClick={showImageModal} />
-            //{
-            //  showModal && (
-            //    <div className="modal">
-            //      <img src="image.jpg" alt="Image" />
-            //    </div>
-            //  )
-            //}
-            //
-            <div className="pics" key={index} onClick={() => getImg(url) }>
-              <img src={url} style={{width: '100%'}} />
+            // Normal view
+            <div className="pics" key={index} onClick={() => getImg(url, index)}>
+              <img src={url} style={{ width: '100%' }} />
             </div>
           );
-          })
-        }
+        })}
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center bottom-0">
         <Link to="/" className="btn">
           Home
         </Link>
       </div>
-
     </div>
   );
 }
