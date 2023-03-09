@@ -6,6 +6,8 @@
     "\\src\\renderer",
     "\\src\\renderer\\components",
     "\\src\\renderer\\components\\forms",
+    "\\src\\renderer\\components\\graph",
+    "\\src\\renderer\\components\\modal",
     "\\src\\renderer\\pages"
   ],
   "SelectedNode": "\\src\\renderer\\pages\\Reciept.tsx",
