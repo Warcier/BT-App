@@ -18,28 +18,24 @@ const BalanceCard = () => {
 
   return (
     <>
-      <div className=" w-[24.4rem] h-[13.2rem] stats bg-gradient-to-r from-blue-600 to-blue-400 text-primary-content container py-2">
+      <div className=" w-[24.4rem] h-[13.2rem] stats bg-gradient-to-r from-blue-600 to-blue-400 text-primary-content container py-2 hover:shadow-lg">
         <div className="">
-          <div className=" w-[24.4rem] h-[14.2rem] stats bg-gradient-to-r from-blue-600 to-blue-400 text-primary-content container items-center justify-center hover:shadow-lg  ">
-            <div className="flex flex-col ">
-              <div className="grow">
-                <div className="font-semibold text-2xl text-white py-3 pl-24">
-                  Current balance
-                </div>
-              </div>
-              <div>
-                <div className="text-6xl pl-24 text-white font-bold">
-                  ${currentBalance}
-                </div>
-              </div>
-              <div>
-                <div className="stat-actions pl-32">
-                  <SetBalanceModal />
-                </div>
-              </div>
-              <div className="px-20" />
+          <div className="grow">
+            <div className="font-semibold text-2xl text-white py-3 pl-24">
+              Current balance
             </div>
           </div>
+          <div>
+            <div className="text-6xl pl-24 text-white font-bold">
+              ${currentBalance}
+            </div>
+          </div>
+          <div>
+            <div className="stat-actions pl-32">
+              <SetBalanceModal />
+            </div>
+          </div>
+          <div className="px-20" />
         </div>
       </div>
     </>

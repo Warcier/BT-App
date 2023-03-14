@@ -34,19 +34,17 @@ function SpendingCard() {
   }, []);
 
   return (
-    <div className="stats text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow shadow-xl w-[24.4rem] height-fixed">
-      <div className="stats text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow w-[24.4rem] height-fixed hover:shadow-lg ">
-        <div className="stat">
-          <div className=" text-xl pb-1">Spending Limits</div>
-          <progress
-            className="progress progress-accent w-[20rem]"
-            value={total}
-            max="1000"
-          />
-          <span>
-            ${total} out of ${budget}
-          </span>
-        </div>
+    <div className="stats text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow shadow-xl w-[24.4rem] height-fixed hover:shadow-lg">
+      <div className="stat">
+        <div className=" text-xl pb-1">Spending Limits</div>
+        <progress
+          className="progress progress-accent w-[20rem]"
+          value={total}
+          max="1000"
+        />
+        <span>
+          ${total} out of ${budget}
+        </span>
       </div>
     </div>
   );
