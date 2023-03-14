@@ -44,7 +44,7 @@ const NavBar = () => {
             </Link>
           </li>
 
-          <li className="hover:bg-GunMetal w-44">
+          <li className="hover:bg-blue-600 w-44">
             <Link
               to="/family"
               className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
