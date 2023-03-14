@@ -50,7 +50,7 @@ const BalanceForm = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center ">
       <form onSubmit={onSubmit}>
         <div className="form-control">
           <label className="input-group">
@@ -64,7 +64,7 @@ const BalanceForm = () => {
           </label>
           {errors.addbalance ? (
             <div>
-              <div className="alert alert-error shadow-lg">
+              <div className="alert alert-error shadow-lg bg-blue-400 text-white ">
                 <div>
                   <span>Balance is required</span>
                 </div>
