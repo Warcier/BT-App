@@ -21,4 +21,6 @@ html{
 .btn:hover{
   background: #caf0f8;
   border:none;
+  box-shadow: 3px 3px lightblue;
 }
+
