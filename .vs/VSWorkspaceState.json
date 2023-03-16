@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\main",
-    "\\src\\renderer",
-    "\\src\\renderer\\components",
-    "\\src\\renderer\\components\\forms",
-    "\\src\\renderer\\components\\graph",
-    "\\src\\renderer\\components\\modal",
-    "\\src\\renderer\\pages"
+    "\\src\\renderer"
   ],
-  "SelectedNode": "\\src\\renderer\\pages\\Reciept.tsx",
+  "SelectedNode": "\\src\\renderer\\App.css",
   "PreviewInSolutionExplorer": false
 }

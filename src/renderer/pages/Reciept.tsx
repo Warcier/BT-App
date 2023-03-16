@@ -120,6 +120,12 @@ function Receipts() {
         })}
       </div>
 
+      {/*<div className="btn-group flex items-center justify-center">*/}
+      {/*  <button className="btn">«</button>*/}
+      {/*  <button className="btn">Page 1</button>*/}
+      {/*  <button className="btn">»</button>*/}
+      {/*</div>*/}
+
       <div className="flex items-center justify-center bottom-0">
         <Link to="/" className="btn">
           Home
