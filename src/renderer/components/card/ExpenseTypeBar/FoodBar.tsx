@@ -25,7 +25,11 @@ const FoodBar = () => {
     <>
       <div>
         <span>Food</span>
-        <progress className="progress w-56 h-3 " value={foodValue} max="1000" />
+        <progress
+          className="progress  h-3 "
+          value={foodValue}
+          max="1000"
+        />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import {
   BalanceCard,
   SpendingGraph,
   CCard,
+  CategoryExpenseCard,
 } from '../components/TestingComponents';
 
 function Home() {
@@ -29,8 +30,8 @@ function Home() {
           <div className="row-span-4 col-span-2 ">
             <ExpenseTable />
           </div>
-          <div className="row-span-2 bg-blue-500">
-            05
+          <div className="row-span-1">
+            <CategoryExpenseCard />
           </div>
           <div className="row-span-2 bg-blue-600">06</div>
         </div>

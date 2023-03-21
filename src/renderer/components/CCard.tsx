@@ -26,7 +26,7 @@ function CCard() {
             <div className="pt-1">
               <h1 className="font-light">Card Number</h1>
               <p className="font-medium tracking-more-wider">
-                4642 3489 9867 7632
+                4556 5682 4192 8296
               </p>
             </div>
             <div className="pt-6 pr-6">
@@ -37,12 +37,12 @@ function CCard() {
                 </div>
                 <div className="">
                   <h1 className="font-light text-xs text-xs">Expiry</h1>
-                  <p className="font-medium tracking-wider text-sm">03/25</p>
+                  <p className="font-medium tracking-wider text-sm">09/2024</p>
                 </div>
 
                 <div className="">
                   <h1 className="font-light text-xs">CVV</h1>
-                  <p className="font-bold tracking-more-wider text-sm">···</p>
+                  <p className="font-bold tracking-more-wider text-sm">125</p>
                 </div>
               </div>
             </div>
