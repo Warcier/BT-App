@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <div>
       <aside className="flex flex-col bg-[#384D48] text-White shadow h-full w-44 py-10">
-        <ul>
+        <ul className="fixed">
           <li className="hover:bg-GunMetal w-44">
             <Link
               to="/"
@@ -31,6 +31,16 @@ const NavBar = () => {
             >
               <FontAwesomeIcon icon={faWallet} />
               <p className="font-serif">Wallet</p>
+            </Link>
+          </li>
+
+          <li className="hover:bg-GunMetal w-44">
+            <Link
+              to="/receipt"
+              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
+            >
+              <FontAwesomeIcon icon={faReceipt} />
+              <p className="font-serif">Receipt</p>
             </Link>
           </li>
 

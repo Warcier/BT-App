@@ -28,7 +28,10 @@ npm install xxx
 - react
 - electron
 - ejs
+- concurrently
 - ts-node
+- firebase
+- react-daily-picker
 
 ## Contribution Guide
 
