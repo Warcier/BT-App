@@ -10,9 +10,9 @@ import PInfoForm from './components/forms/PInfoForm'
 export default function App() {
   return (
     <HashRouter>
-      <div className="h-screen w-screen flex bg-gray-200">
+      <div className="h-full w-screen flex bg-gray-200">
         <NavBar />
-        <div className="container">
+        <div className="w-screen">
           <main className="bg-black">
             <Routes>
               <Route path="/" element={<Home />} />
