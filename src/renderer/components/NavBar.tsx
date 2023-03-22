@@ -12,8 +12,28 @@ import {
 const NavBar = () => {
   return (
     <div>
-      <aside className="flex flex-col bg-[#384D48] text-White shadow h-full w-44 py-10">
-        <ul className="fixed">
+      <aside className="flex flex-col bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow h-full w-44">
+        <ul>
+          <li className="hover:bg-blue-600 w-44">
+            <img
+              className="h-6 w-6 mx-auto"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
+              alt="svelte logo"
+            />
+          </a>
+        </div>
+
+        <ul>
+          <li className="hover:bg-GunMetal w-44">
+            <img
+              className="h-6 w-6 mx-auto"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
+              alt="svelte logo"
+            />
+          </a>
+        </div>
+
+        <ul>
           <li className="hover:bg-GunMetal w-44">
             <Link
               to="/"
@@ -24,13 +44,23 @@ const NavBar = () => {
             </Link>
           </li>
 
-          <li className="hover:bg-GunMetal w-44">
+          <li className="hover:bg-blue-600 w-44">
             <Link
               to="/wallet"
               className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
               <FontAwesomeIcon icon={faWallet} />
               <p className="font-serif">Wallet</p>
+            </Link>
+          </li>
+
+          <li className="hover:bg-blue-600 w-44">
+            <Link
+              to="/receipt"
+              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
+            >
+              <FontAwesomeIcon icon={faUser} />
+              <p className="font-serif">Receipt</p>
             </Link>
           </li>
 

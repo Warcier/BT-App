@@ -12,7 +12,7 @@ interface IFormInputs {
 const schema = Joi.object({
   budget_amount: Joi.number().required(),
 });
-function BudgetForm() {
+const BudgetForm = () => {
   const {
     register,
     handleSubmit,

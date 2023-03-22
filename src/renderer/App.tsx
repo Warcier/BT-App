@@ -12,8 +12,8 @@ export default function App() {
     <HashRouter>
       <div className="h-full w-screen flex bg-gray-200">
         <NavBar />
-        <div className="w-screen">
-          <main className="bg-black">
+        <div className="container">
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/wallet" element={<Wallet />} />
