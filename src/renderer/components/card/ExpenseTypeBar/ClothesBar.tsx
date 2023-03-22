@@ -24,14 +24,20 @@ const FoodBar = () => {
 
   return (
     <>
-      <div>
-        <span>Clothes</span>
-        <progress
-          className="progress w-56 h-3 "
-          value={clothesValue}
-          max="1000"
-        />
-      </div>
+      <>
+        <div className="flex space-x-8 ">
+          <div><span>Clothes</span></div>
+          <div>
+            <progress
+              className="progress progress-accent  w-[15rem]"
+              value={clothesValue}
+              max="1000"
+            />
+          </div>
+        </div>
+
+
+      </>
     </>
   );
 };

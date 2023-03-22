@@ -6,6 +6,8 @@ import {
   SpendingGraph,
   CCard,
   CategoryExpenseCard,
+  SetBalanceModal,
+  SetBudgetModal,
 } from '../components/TestingComponents';
 
 function Home() {
@@ -33,7 +35,19 @@ function Home() {
           <div className="row-span-1">
             <CategoryExpenseCard />
           </div>
-          <div className="row-span-2 bg-blue-600">06</div>
+          <div className="row-span-1 ">
+            <div className="flex flex-row gap-4 items-center justify-center ">
+              <div>
+                <SetBalanceModal />
+              </div>
+              <div>
+                <SetBudgetModal />
+              </div>
+            </div>
+          </div>
+          <div className="row-span-2 bg-blue-700 ">
+              08
+          </div>
         </div>
       </div>
     </>

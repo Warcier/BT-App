@@ -23,13 +23,17 @@ const FoodBar = () => {
 
   return (
     <>
-      <div>
-        <span>Transport</span>
-        <progress
-          className="progress w-56 h-3 "
-          value={transportValue}
-          max="1000"
-        />
+      <div className="flex space-x-4 ...">
+        <div>
+          <span>Transport</span>
+        </div>
+        <div>
+          <progress
+            className="progress progress progress-accent w-[15rem]"
+            value={transportValue}
+            max="1000"
+          />
+        </div>
       </div>
     </>
   );
