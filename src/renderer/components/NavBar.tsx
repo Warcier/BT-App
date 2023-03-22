@@ -20,8 +20,8 @@ const NavBar = () => {
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
               alt="svelte logo"
             />
-          </a>
-        </div>
+          </li>
+        </ul>
 
         <ul>
           <li className="hover:bg-GunMetal w-44">
@@ -30,8 +30,8 @@ const NavBar = () => {
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
               alt="svelte logo"
             />
-          </a>
-        </div>
+          </li>
+        </ul>
 
         <ul>
           <li className="hover:bg-GunMetal w-44">
