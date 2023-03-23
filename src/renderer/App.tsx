@@ -11,7 +11,7 @@ import { SetBudgetPage, CCardFormPage } from './components/TestingComponents';
 export default function App() {
   return (
     <HashRouter>
-      <div className="h-screen w-screen flex bg-gray-200">
+      <div className="h-full w-screen flex bg-gray-200">
         <NavBar />
         <div className="container">
           <main>
