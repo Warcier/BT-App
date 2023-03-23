@@ -15,21 +15,11 @@ const NavBar = () => {
       <aside className="flex flex-col bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow h-full w-44">
         <ul>
           <li className="hover:bg-blue-600 w-44">
-            <img
-              className="h-6 w-6 mx-auto"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
-              alt="svelte logo"
-            />
           </li>
         </ul>
 
         <ul>
           <li className="hover:bg-GunMetal w-44">
-            <img
-              className="h-6 w-6 mx-auto"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
-              alt="svelte logo"
-            />
           </li>
         </ul>
 
