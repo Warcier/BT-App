@@ -24,12 +24,12 @@ function CardDetailTable() {
           <table className="table w-[74rem] h-[15rem] text-center text-EerieBlack  ">
             <thead className="bg-success">
               <tr>
-                <th>#</th>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Card</th>
-                <th>Expiration Date</th>
-                <th>CVC</th>
+                <th className="bg-blue-300">#</th>
+                <th className="bg-blue-300">ID</th>
+                <th className="bg-blue-300">Name</th>
+                <th className="bg-blue-300">Card</th>
+                <th className="bg-blue-300">Expiration Date</th>
+                <th className="bg-blue-300">CVC</th>
               </tr>
             </thead>
             <tbody>
