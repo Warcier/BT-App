@@ -3,7 +3,9 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
+import { ToastContainer, toast } from 'react-toastify';
 import { db } from '../../firebase';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface IFormInputs {
   budget_amount: string;
@@ -12,7 +14,7 @@ interface IFormInputs {
 const schema = Joi.object({
   budget_amount: Joi.number().required(),
 });
-function BudgetForm() {
+const BudgetForm = () => {
   const {
     register,
     handleSubmit,
@@ -25,43 +27,53 @@ function BudgetForm() {
     await setDoc(doc(db, 'users', 'personal', 'budget', `setBudget`), {
       budget_amount: data.budget_amount,
     });
-    alert('Data Sent');
+  });
+
+  const sent = toast.success('New Budget Set', {
+    position: 'bottom-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
   });
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <form onSubmit={onSubmit}>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Budget</span>
-          </label>
-          <label className="input-group">
-            <span>Amount</span>
-            <input
-              type="text"
-              placeholder="10"
-              className="input input-bordered"
-              {...register('budget_amount')}
-            />
-          </label>
-          {errors.budget_amount ? (
-            <div>
-              <div className="alert alert-error shadow-lg">
-                <div>
-                  <span>Card Name is required</span>
+    <>
+      <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
+        <div className="relative py-3 mx-auto text-center">
+          <span className="text-2xl font-light ">Set Your Budget</span>
+          <div className="mt-4 bg-white shadow-md rounded-lg text-left bg-blue-500">
+            <div className="h-2 bg-purple-400 rounded-t-md" />
+            <form onSubmit={onSubmit}>
+              <div className="px-8 py-6 ">
+                <label className="block font-semibold"> Budget </label>
+                <input
+                  type="text"
+                  placeholder="Number"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('budget_amount')}
+                />
+                {errors.budget_amount && <p>You must enter a number</p>}
+                <div className="flex justify-between items-baseline">
+                  <button
+                    type="submit"
+                    onClick={() => sent}
+                    className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
+                  >
+                    Set
+                  </button>
+                  <ToastContainer />
                 </div>
               </div>
-            </div>
-          ) : null}
+            </form>
+          </div>
         </div>
-        <div className="pt-4 item-center">
-          <button type="submit" className="btn btn-secondary py-30 ">
-            Set Budget
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
-}
+};
 
 export default BudgetForm;

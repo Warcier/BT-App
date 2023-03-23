@@ -1,18 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import CCardModal from 'renderer/components/modal/CCardModal';
-import CardDetailTable from 'renderer/components/table/CardDetailTable';
+
+import CardDetailTable from '../components/table/CardDetailTable';
 
 const Wallet = () => {
   return (
     <div>
-      <div className="h-screen grid grid-cols-1 flex px-3 py-3">
-        <div>
+      <div className="h-screen flex items-center justify-center bg-white space-x-2">
+        <h1 className="text-blue-500">
           <CardDetailTable />
-        </div>
-        <div>
-          <CCardModal />
-        </div>
+        </h1>
       </div>
     </div>
   );

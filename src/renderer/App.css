@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +9,19 @@
   margin: 10px;
 }
 
+html{
+  font-family: 'Nunito', sans-serif;
+  background-color: white;
+}
+
+.btn {
+  background: #FFF;
+}
+
+.btn:hover{
+  background: #caf0f8;
+  border:none;
+  box-shadow: 3px 3px lightblue;
 html {
   font-family: mono;
   height: 100%;
