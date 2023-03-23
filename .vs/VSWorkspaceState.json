@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\main",
     "\\src\\renderer",
     "\\src\\renderer\\pages"
   ],
-  "SelectedNode": "\\src\\renderer\\App.css",
+  "SelectedNode": "\\src\\renderer\\components",
   "PreviewInSolutionExplorer": false
 }
