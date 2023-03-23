@@ -78,12 +78,12 @@ function Receipts() {
   };
 
   return (
-    <div className="h-full">
+    <div className="h-max bg-white">
       <div className="flex items-center justify-center">
         <input
           ref={inputRef}
           type="file"
-          className="file-input file-input-bordered file-input-info w-full max-w-lg"
+          className="file-input file-input-bordered file-input-info w-full max-w-lg bg-white"
           onChange={(event) => {
             // @ts-ignore
             setImageUpload(event.target.files[0]);
@@ -91,7 +91,7 @@ function Receipts() {
         />
         <button
           type="submit"
-          className="btn"
+          className="btn hover:bg-blue-600 text-black"
           onClick={() => {
             uploadImage();
             // Reset file input field and imageUpload value

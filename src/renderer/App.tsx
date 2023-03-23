@@ -5,7 +5,7 @@ import Wallet from './pages/Wallet';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import Receipts from './pages/Reciept';
-import PInfoForm from './components/forms/PInfoForm'
+import PInfoForm from './components/forms/PInfoForm';
 
 export default function App() {
   return (
