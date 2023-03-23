@@ -1,6 +1,7 @@
 module.exports = {
   extends: 'erb',
   rules: {
+    'eslint-disable react/jsx-props-no-spreading ': 'off',
     'eslint-disable-next-line react/prop-types': 'off',
     'eslint-disable-next-line react/jsx-props-no-spreading': 'off',
     'eslint-disable-next-line jsx-a11y/label-has-associated-control': 'off',
