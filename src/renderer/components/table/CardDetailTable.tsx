@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
-import TextTag from '../TextTag';
 
 function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
@@ -25,11 +24,12 @@ function CardDetailTable() {
           <table className="table w-[74rem] h-[15rem] text-center text-EerieBlack  ">
             <thead className="bg-success">
               <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Card</th>
-                <th>Expiration Date</th>
-                <th>CVC</th>
+                <th className="bg-blue-300">#</th>
+                <th className="bg-blue-300">ID</th>
+                <th className="bg-blue-300">Name</th>
+                <th className="bg-blue-300">Card</th>
+                <th className="bg-blue-300">Expiration Date</th>
+                <th className="bg-blue-300">CVC</th>
               </tr>
             </thead>
             <tbody>
@@ -37,12 +37,11 @@ function CardDetailTable() {
                 return (
                   <tr key={row.id}>
                     <th className="font-bold">{index + 1} </th>
+                    <th className="font-bold">{row.CardID}</th>
                     <td className="font-bold">{row.CardName}</td>
                     <td>{row.CardNumber}</td>
                     <td className="text-success">{row.ExpirationDate}</td>
-                    <td>
-                      <TextTag text={row.CVC} bg_color="bg-Flame" />
-                    </td>
+                    <td>{row.CVC}</td>
                   </tr>
                 );
               })}

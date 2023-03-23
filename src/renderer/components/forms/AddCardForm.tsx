@@ -4,6 +4,7 @@ import { joiResolver } from '@hookform/resolvers/joi/dist/joi';
 import { doc, setDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
 import Joi from 'joi';
+import { toast, ToastContainer } from 'react-toastify';
 import { db } from '../../firebase';
 
 /*
@@ -13,16 +14,21 @@ import { db } from '../../firebase';
 */
 
 interface IFormInputs {
+  cardID: number;
   cardName: string;
   cardNumber: string;
   expirationDate: string;
   CVC: number;
+
+  type: string;
 }
 const schema = Joi.object({
+  cardID: Joi.number().required(),
   cardName: Joi.string().required(),
   cardNumber: Joi.string().creditCard().required(),
   expirationDate: Joi.string().required(),
   CVC: Joi.number().required(),
+  type: Joi.string().required(),
 });
 
 function AddCardForm() {
@@ -30,6 +36,7 @@ function AddCardForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormInputs>({
     resolver: joiResolver(schema),
@@ -38,118 +45,118 @@ function AddCardForm() {
   const onSubmit = handleSubmit(async (data) => {
     // Add a new document in collection "cities"
     // TODO: Automatically assign a unique id to the document
-    await setDoc(doc(db, 'users', 'wallet', 'user', `cc${uuidv4()}`), {
+    await setDoc(doc(db, 'users', 'wallet', 'userCard', `cc${uuidv4()}`), {
+      CardID: data.cardID,
       CardName: data.cardName,
       CardNumber: data.cardNumber,
       CVC: data.CVC,
       ExpirationDate: data.expirationDate,
+      Type: data.type,
     });
-
     // #TODO temporary indicator for data submission
+    console.log('data sent');
     alert('data added');
   });
 
+  // const sent = toast.success('New Budget Set', {
+  //  position: 'bottom-right',
+  //  autoClose: 3000,
+  //  hideProgressBar: false,
+  //  closeOnClick: true,
+  //  pauseOnHover: false,
+  //  draggable: true,
+  //  progress: undefined,
+  //  theme: 'light',
+  // });
   return (
     <>
-      <h4>Card Info</h4>
-      <form onSubmit={onSubmit}>
-        <div>
-          <div className="flex flex-col gap-2">
-            <div>
-              <div className="form-control" />
-              <label className="input-group">
-                <span>Name</span>
+      <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
+        <div className="relative py-3 mx-auto text-center">
+          <span className="text-2xl font-light ">Card Info</span>
+          <div className="mt-4 bg-white shadow-md rounded-lg text-left bg-blue-500">
+            <div className="h-2 bg-purple-400 rounded-t-md" />
+            <form onSubmit={onSubmit}>
+              <div className="px-8 py-6 ">
+                <label className="block font-semibold"> ID </label>
                 <input
                   type="text"
-                  placeholder="Card Name"
-                  className="input input-bordered"
+                  placeholder="Name"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('cardID')}
+                />
+                {errors.cardName && <p>You must enter a number</p>}
+                <label className="block font-semibold"> Full Name </label>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
                   {...register('cardName')}
                 />
-              </label>
-              {errors.cardName ? (
-                <div>
-                  <div className="alert alert-error shadow-lg">
-                    <div>
-                      <span>Card Name is required</span>
-                    </div>
-                  </div>
+                {errors.cardName && <p>You must enter a number</p>}
+                <label className="block font-semibold"> Card Number </label>
+                <input
+                  type="text"
+                  placeholder="#### #### #### ####"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('cardNumber')}
+                />
+                {errors.cardNumber && <p>You must enter a valid Card Number</p>}
+                <label className="block font-semibold"> Expiration Date </label>
+                <input
+                  type="text"
+                  placeholder="00/00"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('expirationDate')}
+                />
+                {errors.CVC && <p>You must enter a valid Expiration Date</p>}
+                <label className="block font-semibold"> CVC </label>
+                <input
+                  type="number"
+                  placeholder="123"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('CVC')}
+                />
+                {errors.expirationDate && <p>You must enter a valid CVC </p>}
+                <label className="block font-semibold">Type</label>
+                <select
+                  className="border w-full h-10 px-3  mt-2 text-gray-800 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('type')}
+                >
+                  <option value="master">Master</option>
+                  <option value="visa">Visa</option>
+                  <option value="other">Other</option>
+                </select>
+                {errors.expirationDate && (
+                  <p>Choose either one of the option</p>
+                )}
+                <div className="flex justify-between items-baseline">
+                  <button
+                    type="submit"
+                    className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
+                  >
+                    Add Card
+                  </button>
+                  <button
+                    onClick={() =>
+                      reset({
+                        cardID: 0,
+                        cardName: '',
+                        cardNumber: '',
+                        CVC: 0,
+                        type: 'master',
+                      })
+                    }
+                    className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
+                  >
+                    Reset
+                  </button>
+                  <ToastContainer />
                 </div>
-              ) : null}
-            </div>
-            <div>
-              <div className="form-control">
-                <label className="input-group">
-                  <span>Card Number</span>
-                  <input
-                    type="tel"
-                    placeholder="xxxx xxxx xxxx xxxx"
-                    className="input input-bordered w-full max-w-xs"
-                    {...register('cardNumber')}
-                  />
-                </label>
-                {errors.cardNumber ? (
-                  <div>
-                    <div className="alert alert-error shadow-lg">
-                      <div>
-                        <span>Card Number is required</span>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
               </div>
-            </div>
-            <div>
-              <div className="form-control">
-                <label className="input-group">
-                  <span>Expiration Date</span>
-                  <input
-                    type="text"
-                    placeholder="MM/YYYY"
-                    className="input input-bordered w-full max-w-xs"
-                    {...register('expirationDate')}
-                  />
-                </label>
-                {errors.expirationDate ? (
-                  <div>
-                    <div className="alert alert-error shadow-lg">
-                      <div>
-                        <span>Expiration Date is required</span>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-            <div>
-              <div className="form-control">
-                <label className="input-group">
-                  <span>CVC</span>
-                  <input
-                    type="text"
-                    placeholder="123"
-                    className="input input-bordered w-full max-w-xs"
-                    {...register('CVC')}
-                  />
-                </label>
-                {errors.CVC ? (
-                  <div>
-                    <div className="alert alert-error shadow-lg">
-                      <div>
-                        <span>CVC is required</span>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
+            </form>
           </div>
         </div>
-        <div className="pt-3">
-          <button type="submit" className="btn">
-            Send
-          </button>
-        </div>
-      </form>
+      </div>
     </>
   );
 }

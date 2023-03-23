@@ -10,7 +10,7 @@ function CCard() {
     <>
       <div className="space-y-16">
         <div className="w-96 h-56 m-auto bg-red-100 relative text-white ">
-          <div className="relative rounded-xl object-cover w-full h-full bg-blue-900" />
+          <div className="relative rounded-xl object-cover w-full h-full bg-gradient-to-r from-blue-700 to-green-400 hover:shadow-lg " />
           <div className="w-full px-8 absolute top-4">
             <div className="flex justify-between">
               <div className="">
@@ -26,7 +26,7 @@ function CCard() {
             <div className="pt-1">
               <h1 className="font-light">Card Number</h1>
               <p className="font-medium tracking-more-wider">
-                4642 3489 9867 7632
+                4556 5682 4192 8296
               </p>
             </div>
             <div className="pt-6 pr-6">
@@ -37,12 +37,12 @@ function CCard() {
                 </div>
                 <div className="">
                   <h1 className="font-light text-xs text-xs">Expiry</h1>
-                  <p className="font-medium tracking-wider text-sm">03/25</p>
+                  <p className="font-medium tracking-wider text-sm">09/2024</p>
                 </div>
 
                 <div className="">
                   <h1 className="font-light text-xs">CVV</h1>
-                  <p className="font-bold tracking-more-wider text-sm">···</p>
+                  <p className="font-bold tracking-more-wider text-sm">125</p>
                 </div>
               </div>
             </div>

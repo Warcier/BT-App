@@ -84,7 +84,7 @@ const ExpenseTable = () => {
                 className="w-[50rem] h-auto text-center text-EerieBlack divide-y divide-[#F2F6D0]"
                 {...getTableProps()}
               >
-                <thead className="bg-gradient-to-r from-blue-300 to-blue-900">
+                <thead className="bg-gradient-to-r from-blue-300 to-blue-700">
                   {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                       {headerGroup.headers.map((column) => (
@@ -135,7 +135,7 @@ const ExpenseTable = () => {
                   <button
                     onClick={() => nextPage()}
                     disabled={!canNextPage}
-                    className="w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center ml-20"
+                    className="w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-b-2 border-blue-500 hover:border-blue-600 hover:bg-blue-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center ml-20"
                   >
                     <span className="mx-auto">Next</span>
                   </button>
