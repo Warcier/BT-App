@@ -44,7 +44,7 @@ const BudgetForm = () => {
     <>
       <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
         <div className="relative py-3 mx-auto text-center">
-          <span className="text-2xl font-light ">Set Your Budget</span>
+          <span className="text-2xl font-light ">Set Budget</span>
           <div className="mt-4 bg-white shadow-md rounded-lg text-left bg-blue-500">
             <div className="h-2 bg-purple-400 rounded-t-md" />
             <form onSubmit={onSubmit}>

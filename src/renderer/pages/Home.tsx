@@ -45,12 +45,10 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="row-span-2 bg-blue-700 ">
-              08
-          </div>
+          <div className="row-span-2 bg-blue-700 ">08</div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -24,9 +24,9 @@ const FoodBar = () => {
 
   return (
     <>
-      <div className="flex space-x-11 ...">
+      <div className="flex space-x-11">
         <div>
-          <span>Other</span>
+          <span className="font-semibold text-xl">Other</span>
         </div>
         <div>
           <progress

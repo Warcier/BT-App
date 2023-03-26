@@ -12,19 +12,23 @@ import BalanceCard from './card/BalanceCard';
 import CategoryExpenseCard from './card/CategoryExpenseCard';
 import SetBudgetPage from '../pages/FormPage/SetBudgetPage';
 import CCardFormPage from '../pages/FormPage/CCardFormPage';
+import AddBalancePage from '../pages/FormPage/AddBalancePage';
+import PInfoPage from '../pages/FormPage/PInfoPage';
 
 export {
   PInfoModal,
-  SetBudgetPage,
-  CCardFormPage,
   SetBudgetModal,
   SpendingCard,
   CCardModal,
+  ExpenseModal,
+  SetBalanceModal,
   CCard,
   SpendingGraph,
-  ExpenseModal,
   ExpenseTable,
   BalanceCard,
   CategoryExpenseCard,
-  SetBalanceModal,
+  SetBudgetPage,
+  CCardFormPage,
+  AddBalancePage,
+  PInfoPage,
 };

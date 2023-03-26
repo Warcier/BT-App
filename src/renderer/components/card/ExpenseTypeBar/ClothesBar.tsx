@@ -26,7 +26,9 @@ const FoodBar = () => {
     <>
       <>
         <div className="flex space-x-8 ">
-          <div><span>Clothes</span></div>
+          <div>
+            <span className="font-semibold text-xl">Clothes</span>
+          </div>
           <div>
             <progress
               className="progress progress-accent  w-[15rem]"

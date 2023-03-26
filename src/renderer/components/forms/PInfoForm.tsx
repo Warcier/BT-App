@@ -5,10 +5,11 @@ import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
 import { db } from '../../firebase';
+import { ToastContainer } from 'react-toastify';
 
 interface IFormInputs {
   fullName: string;
-  age: string;
+  age: number;
   phoneNumber: number;
   address: string;
 }
@@ -23,6 +24,7 @@ function PInfoForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormInputs>({
     resolver: joiResolver(schema),
@@ -40,109 +42,70 @@ function PInfoForm() {
   });
 
   return (
-    <div className="container ">
-      {/* Form Section */}
-
-      <form onSubmit={onSubmit}>
-        <div className="flex flex-col justify-center items-center">
-          <h1>
-            <b>Card Info</b>
-          </h1>
-          {/* Input item starts */}
-          <div className="form-control" />
-          <label className="label">
-            <span className="label-text">Full Name</span>
-          </label>
-          <input
-            type="text"
-            placeholder=""
-            className="input input-bordered input-accent w-full max-w-xs"
-            {...register('fullName')}
-          />
-          {errors.fullName ? (
-            <div>
-              <div className="alert alert-error shadow-lg">
-                <div>
-                  <span>Card Name is required</span>
+    <>
+      <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
+        <div className="relative py-3 mx-auto text-center">
+          <span className="text-2xl font-light ">Personal Info</span>
+          <div className="mt-4 bg-white shadow-md rounded-lg text-left bg-blue-500">
+            <div className="h-2 bg-purple-400 rounded-t-md" />
+            <form onSubmit={onSubmit}>
+              <div className="px-8 py-6 ">
+                <label className="block font-semibold"> Full Name </label>
+                <input
+                  type="text"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('fullName')}
+                />
+                {errors.fullName && <p>You must enter a number</p>}
+                <label className="block font-semibold"> Age </label>
+                <input
+                  type="number"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('age')}
+                />
+                {errors.age && <p>You must enter a number</p>}
+                <label className="block font-semibold"> Phone Number </label>
+                <input
+                  type="text"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('phoneNumber')}
+                />
+                {errors.phoneNumber && <p>You must enter a valid Card Number</p>}
+                <label className="block font-semibold"> Address </label>
+                <input
+                  type="text"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('address')}
+                />
+                {errors.address && <p>You must enter address </p>}
+                <div className="flex justify-between items-baseline">
+                  <button
+                    type="submit"
+                    className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={() =>
+                      reset({
+                        fullName: '',
+                        age: 0,
+                        phoneNumber: 0,
+                        address: '',
+                      })
+                    }
+                    className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
+                  >
+                    Reset
+                  </button>
+                  <ToastContainer />
                 </div>
               </div>
-            </div>
-          ) : null}
-          {/* Input item ends */}
-          {/* Input item starts */}
-          <div className="form-control" />
-          <label className="label">
-            <span className="label-text">Age</span>
-          </label>
-          <input
-            type="text"
-            placeholder=""
-            className="input input-bordered input-accent w-full max-w-xs"
-            {...register('age')}
-          />
-          {errors.age ? (
-            <div>
-              <div className="alert alert-error shadow-lg">
-                <div>
-                  <span>Age is required</span>
-                </div>
-              </div>
-            </div>
-          ) : null}
-
-          {/* Input item ends */}
-          {/* Input item starts */}
-          <div className="form-control" />
-          <label className="label">
-            <span className="label-text">Phone Number</span>
-          </label>
-          <input
-            type="text"
-            placeholder=""
-            className="input input-bordered input-accent w-full max-w-xs"
-            {...register('phoneNumber')}
-          />
-          {errors.phoneNumber ? (
-            <div>
-              <div className="alert alert-error shadow-lg">
-                <div>
-                  <span>Expiration Date is required</span>
-                </div>
-              </div>
-            </div>
-          ) : null}
-          {/* Input item ends */}
-          {/* Input item starts */}
-          <label className="label">
-            <span className="label-text">Address</span>
-          </label>
-          <input
-            type="text"
-            placeholder=""
-            className="input input-bordered input-accent w-full max-w-xs"
-            {...register('address')}
-          />
-          {errors.address ? (
-            <div>
-              <div className="alert alert-error shadow-lg">
-                <div>
-                  <span>Address is required</span>
-                </div>
-              </div>
-            </div>
-          ) : null}
-          {/* Input item ends */}
-          <div className="pt-4">
-            <button
-              type="submit"
-              className="btn btn-outline btn-secondary py-30 "
-            >
-              Send
-            </button>
+            </form>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 
