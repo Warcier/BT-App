@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { collection, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../../../firebase';
 
-const FoodBar = () => {
+const FoodBar = (props) => {
   const [foodValue, setFoodValue] = useState();
   const transactionRef = collection(db, '/users/expenditure/transaction');
   const foodQuery = query(
@@ -31,7 +31,7 @@ const FoodBar = () => {
           <progress
             className="progress progress-accent w-[15rem]"
             value={foodValue}
-            max="1000"
+            max={props.budget}
           />
         </div>
       </div>

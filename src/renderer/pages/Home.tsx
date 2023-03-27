@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { collection, doc, onSnapshot, query, where } from 'firebase/firestore';
 import {
   ExpenseTable,
   SpendingCard,
@@ -9,8 +10,39 @@ import {
   SetBalanceModal,
   SetBudgetModal,
 } from '../components/TestingComponents';
+import { db } from '../firebase';
 
 function Home() {
+  const [budget, setBudget] = useState<any>([]);
+
+  const [total, setTotal] = useState<number>();
+  const budgetRef = doc(db, 'users/personal/budget/setBudget');
+  const transactionRef = collection(db, '/users/expenditure/transaction');
+
+  useEffect(() => {
+    // Get all the transaction amount using query
+    const q = query(transactionRef, where('expenseInfo.amount', '>=', 0));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const allTransaction: any[] = [];
+      querySnapshot.forEach((doc) => {
+        const fetchAmount = doc.get('expenseInfo.amount');
+        allTransaction.push(fetchAmount);
+      });
+      const value = allTransaction.reduce(
+        (nextValue, currentValue) => nextValue + currentValue
+      );
+      setTotal(value);
+    });
+    // Get the budget amount
+    const snapshot = onSnapshot(
+      budgetRef,
+      { includeMetadataChanges: true },
+      (data) => {
+        setBudget(data.get('budget_amount'));
+      }
+    );
+  }, []);
+
   return (
     <>
       <div className=" h-max container bg-white flex items-center justify-center  ">
@@ -23,7 +55,7 @@ function Home() {
               <SpendingGraph />
             </div>
             <div className="mb-3">
-              <SpendingCard />
+              <SpendingCard total={total} budget={budget} />
             </div>
           </div>
           <div className="row-span-1 ">
@@ -33,7 +65,7 @@ function Home() {
             <ExpenseTable />
           </div>
           <div className="row-span-1">
-            <CategoryExpenseCard />
+            <CategoryExpenseCard budget={budget} />
           </div>
           <div className="row-span-1 ">
             <div className="flex flex-row gap-4 items-center justify-center ">

@@ -4,7 +4,7 @@ import TransportBar from './ExpenseTypeBar/TransportBar';
 import ClothesBar from './ExpenseTypeBar/ClothesBar';
 import OtherBar from './ExpenseTypeBar/OtherBar';
 
-const CategoryExpenseCard = () => {
+const CategoryExpenseCard = (props) => {
   return (
     <>
       <div className="border-2 rounded-lg text-white w-[390px] h-[320px] grid h-screen place-items-center
@@ -17,16 +17,16 @@ const CategoryExpenseCard = () => {
           </div>
           <div className="flex flex-col gap-10 ">
             <div>
-              <FoodBar />
+              <FoodBar budget={props.budget} />
             </div>
             <div>
-              <TransportBar />
+              <TransportBar budget={props.budget} />
             </div>
             <div>
-              <ClothesBar />
+              <ClothesBar budget={props.budget} />
             </div>
             <div>
-              <OtherBar />
+              <OtherBar budget={props.budget} />
             </div>
           </div>
         </div>
