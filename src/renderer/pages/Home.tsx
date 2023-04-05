@@ -80,7 +80,7 @@ function Home() {
           <div className="row-span-2 bg-blue-700 ">08</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

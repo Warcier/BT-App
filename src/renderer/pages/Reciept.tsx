@@ -10,7 +10,7 @@ import { bool, boolean } from 'joi';
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
-  const imageListRef = ref(storage, 'images/'); // Referencing firebase storage path
+  const imageListRef = ref(storage, 'receipt/'); // Referencing firebase storage path
   const inputRef = useRef(null); // Used for reset file input later
 
   // Used in image gallery part
@@ -20,7 +20,7 @@ function Receipts() {
   const uploadImage = () => {
     if (imageUpload == null) return;
 
-    const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
+    const imageRef = ref(storage, `receipt/${imageUpload.name + uuidv4()}`);
     // @ts-ignore
     uploadBytes(imageRef, imageUpload)
       .then((snapshot) => {
@@ -79,29 +79,7 @@ function Receipts() {
 
   return (
     <div className="h-full">
-      <div className="flex items-center justify-center">
-        <input
-          ref={inputRef}
-          type="file"
-          className="file-input file-input-bordered file-input-info w-full max-w-lg"
-          onChange={(event) => {
-            // @ts-ignore
-            setImageUpload(event.target.files[0]);
-          }}
-        />
-        <button
-          type="submit"
-          className="btn"
-          onClick={() => {
-            uploadImage();
-            // Reset file input field and imageUpload value
-            setImageUpload(null);
-            inputRef.current.value = null;
-          }}
-        >
-          Upload
-        </button>
-      </div>
+      
 
       <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />
