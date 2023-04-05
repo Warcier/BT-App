@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faTrash, faT } from '@fortawesome/free-solid-svg-icons';
 import { bool, boolean } from 'joi';
+import ImageUpload from './FormPage/ImageUpload';
 
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
@@ -79,7 +80,8 @@ function Receipts() {
 
   return (
     <div className="h-full">
-      
+
+      <ImageUpload />
 
       <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />

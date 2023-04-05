@@ -12,18 +12,18 @@ function Personal() {
   };
 
   return (
-    <div className="">
+    <div className=" h-screen bg-blue-500/100">
       <div className={Model ? 'model open' : 'model'}>
         <ImageUpload />
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
 
-      <div className="text-[36px] font-bold bg-blue-500/100 h-16 ">
-        <span>Welcome, User.</span>
-        <FontAwesomeIcon icon={faUser} className="h-16 border-black rounded-full hover:opacity-75 float-right" onClick={() => getInput()} />
+      <div className="text-[42px] font-bold h-24 ">
+        <span>Welcome! User.</span>
+        <FontAwesomeIcon icon={faUser} className="h-24 border-black rounded-full hover:opacity-75 float-right" onClick={() => getInput()} />
       </div>
 
-      <div className="bg-blue-500/50">
+      <div className="text-[30px] font-semibold bg-blue-500/50">
         <div>
           Name:
         </div>
