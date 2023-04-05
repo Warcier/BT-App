@@ -109,13 +109,28 @@ function Receipts() {
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
 
-      <div className="gallery">
+      <div className="carousel carousel-center p-4 space-x-4 bg-neutral rounded-box">
         {imageList.map((url, index) => {
           return (
+            // Full-bleed carousel from DaisyUI
+            <div className="carousel-item">
+              <img src={url} className="rounded-box w-600 h-400 " />
+            </div> 
+
+
+            // Carousel with next/prev buttons from DaisyUI
+            //<div id={"slide" + index} className="carousel-item relative w-full">
+            //  <img src={url} className="gallery" key={index} onClick={() => getImg(url, index)}/>
+            //  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            //    <a href={"#slide" + (index-1)} className="btn btn-circle">❮</a>
+            //    <a href={"#slide" + (index+1)} className="btn btn-circle">❯</a>
+            //  </div>
+            //</div> 
+
             // Normal view
-            <div className="pics" key={index} onClick={() => getImg(url, index)}>
-              <img src={url} style={{ width: '100%' }} />
-            </div>
+            //<div className="pics" key={index} onClick={() => getImg(url, index)}>
+            //  <img src={url}/>
+            //</div>
           );
         })}
       </div>

@@ -12,7 +12,7 @@ import {
 
 function Home() {
   return (
-    <>
+    <div>
       <div className=" h-max container bg-white flex items-center justify-center  ">
         <div className=" w-[75rem] h-[50rem] grid grid-flow-row-dense grid-cols-3 gap-4 py-5">
           <div className="row-span-1 ">
