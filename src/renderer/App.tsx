@@ -5,8 +5,12 @@ import Wallet from './pages/Wallet';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import Receipts from './pages/Reciept';
-import { SetBudgetPage, CCardFormPage } from './components/TestingComponents';
-
+import {
+  SetBudgetPage,
+  CCardFormPage,
+  AddBalancePage,
+} from './components/TestingComponents';
+import PInfoPage from './pages/FormPage/PInfoPage';
 
 export default function App() {
   return (
@@ -22,6 +26,8 @@ export default function App() {
               <Route path="/receipt" element={<Receipts />} />
               <Route path="/budgetPage" element={<SetBudgetPage />} />
               <Route path="/cardPage" element={<CCardFormPage />} />
+              <Route path="/balancePage" element={<AddBalancePage />} />
+              <Route path="/infoPage" element={<PInfoPage />} />
             </Routes>
           </main>
         </div>

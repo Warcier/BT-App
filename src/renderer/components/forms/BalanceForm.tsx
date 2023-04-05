@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi, { number } from 'joi';
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
+import { toast, ToastContainer } from 'react-toastify';
 import { db } from '../../firebase';
 
 interface IFormInputs {
@@ -49,36 +50,50 @@ const BalanceForm = () => {
     getCurrentBalance().catch((err) => console.log(err));
   }, []);
 
+  const sent = toast.success('New Budget Set', {
+    position: 'bottom-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
+
   return (
-    <div className="flex flex-col justify-center items-center ">
-      <form onSubmit={onSubmit}>
-        <div className="form-control">
-          <label className="input-group">
-            <span>Add Balance</span>
-            <input
-              type="text"
-              placeholder="Balance"
-              className="input input-bordered"
-              {...register('addbalance')}
-            />
-          </label>
-          {errors.addbalance ? (
-            <div>
-              <div className="alert alert-error shadow-lg bg-blue-400 text-white ">
-                <div>
-                  <span>Balance is required</span>
+    <>
+      <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
+        <div className="relative py-3 mx-auto text-center">
+          <span className="text-2xl font-light ">Add Balance</span>
+          <div className="mt-4 bg-white shadow-md rounded-lg text-left bg-blue-500">
+            <div className="h-2 bg-purple-400 rounded-t-md" />
+            <form onSubmit={onSubmit}>
+              <div className="px-8 py-6 ">
+                <label className="block font-semibold"> Balance </label>
+                <input
+                  type="text"
+                  placeholder="Number"
+                  className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
+                  {...register('addbalance')}
+                />
+                {errors.addbalance && <p>You must enter a number</p>}
+                <div className="flex justify-between items-baseline">
+                  <button
+                    type="submit"
+                    onClick={() => sent}
+                    className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
+                  >
+                    Set
+                  </button>
+                  <ToastContainer />
                 </div>
               </div>
-            </div>
-          ) : null}
+            </form>
+          </div>
         </div>
-        <div className="pt-4 item-center">
-          <button type="submit" className="btn btn-secondary py-30 ">
-            Set Budget
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 
