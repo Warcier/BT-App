@@ -11,7 +11,7 @@ import ImageUpload from './FormPage/ImageUpload';
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
-  const imageListRef = ref(storage, 'receipt/'); // Referencing firebase storage path
+  const imageListRef = ref(storage, 'photo/'); // Referencing firebase storage path
   const inputRef = useRef(null); // Used for reset file input later
 
   // Used in image gallery part
@@ -21,7 +21,7 @@ function Receipts() {
   const uploadImage = () => {
     if (imageUpload == null) return;
 
-    const imageRef = ref(storage, `receipt/${imageUpload.name + uuidv4()}`);
+    const imageRef = ref(storage, `photo/${imageUpload.name + uuidv4()}`);
     // @ts-ignore
     uploadBytes(imageRef, imageUpload)
       .then((snapshot) => {
@@ -94,7 +94,7 @@ function Receipts() {
           return (
             // Full-bleed carousel from DaisyUI
             <div className="carousel-item">
-              <img src={url} className="rounded-box w-600 h-400 " />
+              <img src={url} className="rounded-box w-600 h-400" key={index} onClick={() => getImg(url, index)} />
             </div> 
 
 
