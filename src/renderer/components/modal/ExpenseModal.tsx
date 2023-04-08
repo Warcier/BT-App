@@ -1,9 +1,12 @@
 import React from 'react';
-import ExpenseForm from '../forms/ExpenseForm';
+import { Link } from 'react-router-dom';
 
 function ExpenseModal() {
   return (
     <>
+      <Link to="/addExpense">
+        <button className="btn">Add Expense</button>
+      </Link>
     </>
   );
 }

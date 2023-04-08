@@ -16,6 +16,7 @@ import CCardFormPage from '../pages/FormPage/CCardFormPage';
 import AddBalancePage from '../pages/FormPage/AddBalancePage';
 import PInfoPage from '../pages/FormPage/PInfoPage';
 import MainCardPage from '../pages/FormPage/MainCardPage';
+import AddExpensePage from '../pages/FormPage/AddExpensePage';
 
 export {
   PInfoModal,
@@ -35,4 +36,5 @@ export {
   AddBalancePage,
   PInfoPage,
   MainCardPage,
+  AddExpensePage,
 };

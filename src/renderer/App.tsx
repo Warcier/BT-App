@@ -11,8 +11,8 @@ import {
   AddBalancePage,
   PInfoPage,
   MainCardPage,
+  AddExpensePage,
 } from './components/TestingComponents';
-import PInfoPage from './pages/FormPage/PInfoPage';
 import Personal from './pages/Personal';
 
 export default function App() {
@@ -33,6 +33,7 @@ export default function App() {
               <Route path="/infoPage" element={<PInfoPage />} />
               <Route path="/mainCardPage" element={<MainCardPage />} />
               <Route path="/personalInfo" element={<Personal />} />
+              <Route path="/addExpense" element={<AddExpensePage />} />
             </Routes>
           </main>
         </div>

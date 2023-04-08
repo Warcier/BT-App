@@ -59,7 +59,7 @@ const MainCard = () => {
     const oldQ = query(cardInfoRef, where('cardInfo.Main', '==', 'Yes'));
     const querySnapshot1 = await getDocs(oldQ);
     querySnapshot1.forEach((oldData) => {
-      setOldID(oldData.id);
+      return oldData.id;
     });
   }
 
@@ -72,12 +72,12 @@ const MainCard = () => {
     );
     const querySnapshot2 = await getDocs(newQ);
     querySnapshot2.forEach((newData) => {
-      setNewDocID(newData.id);
+      return newData.id;
     });
   }
   const onSubmit = handleSubmit(async (data) => {
-    await getOldID();
-    await getNewID(data);
+    await setOldID(getOldID());
+    await setNewDocID(getNewID(data));
     await swapMainCard(oldID, newDocID, db);
   });
 
