@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faTrash, faT } from '@fortawesome/free-solid-svg-icons';
 import { bool, boolean } from 'joi';
-import ImageUpload from './FormPage/ImageUpload';
+import ImageUpload from '../components/ImageUpload';
 
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
@@ -95,7 +95,7 @@ function Receipts() {
             // Full-bleed carousel from DaisyUI
             <div className="carousel-item">
               <img src={url} className="rounded-box w-600 h-400" key={index} onClick={() => getImg(url, index)} />
-            </div> 
+            </div>
 
 
             // Carousel with next/prev buttons from DaisyUI
@@ -105,7 +105,7 @@ function Receipts() {
             //    <a href={"#slide" + (index-1)} className="btn btn-circle">❮</a>
             //    <a href={"#slide" + (index+1)} className="btn btn-circle">❯</a>
             //  </div>
-            //</div> 
+            //</div>
 
             // Normal view
             //<div className="pics" key={index} onClick={() => getImg(url, index)}>
