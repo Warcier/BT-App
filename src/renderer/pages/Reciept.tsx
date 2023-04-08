@@ -6,11 +6,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faTrash, faT } from '@fortawesome/free-solid-svg-icons';
 import { bool, boolean } from 'joi';
+import ImageUpload from './FormPage/ImageUpload';
 
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
-  const imageListRef = ref(storage, 'images/'); // Referencing firebase storage path
+  const imageListRef = ref(storage, 'photo/'); // Referencing firebase storage path
   const inputRef = useRef(null); // Used for reset file input later
 
   // Used in image gallery part
@@ -20,7 +21,7 @@ function Receipts() {
   const uploadImage = () => {
     if (imageUpload == null) return;
 
-    const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
+    const imageRef = ref(storage, `photo/${imageUpload.name + uuidv4()}`);
     // @ts-ignore
     uploadBytes(imageRef, imageUpload)
       .then((snapshot) => {
@@ -79,29 +80,8 @@ function Receipts() {
 
   return (
     <div className="h-full">
-      <div className="flex items-center justify-center">
-        <input
-          ref={inputRef}
-          type="file"
-          className="file-input file-input-bordered file-input-info w-full max-w-lg"
-          onChange={(event) => {
-            // @ts-ignore
-            setImageUpload(event.target.files[0]);
-          }}
-        />
-        <button
-          type="submit"
-          className="btn"
-          onClick={() => {
-            uploadImage();
-            // Reset file input field and imageUpload value
-            setImageUpload(null);
-            inputRef.current.value = null;
-          }}
-        >
-          Upload
-        </button>
-      </div>
+
+      <ImageUpload />
 
       <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />
@@ -109,13 +89,28 @@ function Receipts() {
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
 
-      <div className="gallery">
+      <div className="carousel carousel-center p-4 space-x-4 bg-neutral rounded-box">
         {imageList.map((url, index) => {
           return (
+            // Full-bleed carousel from DaisyUI
+            <div className="carousel-item">
+              <img src={url} className="rounded-box w-600 h-400" key={index} onClick={() => getImg(url, index)} />
+            </div> 
+
+
+            // Carousel with next/prev buttons from DaisyUI
+            //<div id={"slide" + index} className="carousel-item relative w-full">
+            //  <img src={url} className="gallery" key={index} onClick={() => getImg(url, index)}/>
+            //  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            //    <a href={"#slide" + (index-1)} className="btn btn-circle">❮</a>
+            //    <a href={"#slide" + (index+1)} className="btn btn-circle">❯</a>
+            //  </div>
+            //</div> 
+
             // Normal view
-            <div className="pics" key={index} onClick={() => getImg(url, index)}>
-              <img src={url} style={{ width: '100%' }} />
-            </div>
+            //<div className="pics" key={index} onClick={() => getImg(url, index)}>
+            //  <img src={url}/>
+            //</div>
           );
         })}
       </div>
