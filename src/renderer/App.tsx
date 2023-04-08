@@ -9,8 +9,9 @@ import {
   SetBudgetPage,
   CCardFormPage,
   AddBalancePage,
+  PInfoPage,
+  MainCardPage,
 } from './components/TestingComponents';
-import PInfoPage from './pages/FormPage/PInfoPage';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/cardPage" element={<CCardFormPage />} />
               <Route path="/balancePage" element={<AddBalancePage />} />
               <Route path="/infoPage" element={<PInfoPage />} />
+              <Route path="/mainCardPage" element={<MainCardPage />} />
             </Routes>
           </main>
         </div>

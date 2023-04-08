@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { collection, doc, onSnapshot, where, query } from 'firebase/firestore';
-import { db } from '../../firebase';
+import React from 'react';
+
 
 function SpendingCard(props) {
   return (

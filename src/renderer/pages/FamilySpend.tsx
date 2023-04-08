@@ -6,6 +6,7 @@ import {
   PInfoModal,
   SetBudgetModal,
   SetBalanceModal,
+  MainCardModal,
 } from '../components/TestingComponents';
 
 function FamilySpend() {
@@ -18,6 +19,7 @@ function FamilySpend() {
           <SetBudgetModal />
           <SetBalanceModal />
           <CCardModal />
+          <MainCardModal />
         </div>
       </div>
     </>

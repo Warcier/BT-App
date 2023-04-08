@@ -14,20 +14,19 @@ import { db } from '../../firebase';
 */
 
 interface IFormInputs {
-  cardID: number;
+  cardID: string;
   cardName: string;
   cardNumber: string;
   expirationDate: string;
-  CVC: number;
-
+  CVC: string;
   type: string;
 }
 const schema = Joi.object({
-  cardID: Joi.number().required(),
+  cardID: Joi.string().required(),
   cardName: Joi.string().required(),
   cardNumber: Joi.string().creditCard().required(),
   expirationDate: Joi.string().required(),
-  CVC: Joi.number().required(),
+  CVC: Joi.string().required(),
   type: Joi.string().required(),
 });
 
@@ -46,28 +45,32 @@ function AddCardForm() {
     // Add a new document in collection "cities"
     // TODO: Automatically assign a unique id to the document
     await setDoc(doc(db, 'users', 'wallet', 'userCard', `cc${uuidv4()}`), {
-      CardID: data.cardID,
-      CardName: data.cardName,
-      CardNumber: data.cardNumber,
-      CVC: data.CVC,
-      ExpirationDate: data.expirationDate,
-      Type: data.type,
+      cardInfo: {
+        CardID: data.cardID,
+        CardName: data.cardName,
+        CardNumber: data.cardNumber,
+        CVC: data.CVC,
+        ExpirationDate: data.expirationDate,
+        Type: data.type,
+        Main: 'No',
+      },
     });
+
     // #TODO temporary indicator for data submission
     console.log('data sent');
-    alert('data added');
   });
 
-  // const sent = toast.success('New Budget Set', {
-  //  position: 'bottom-right',
-  //  autoClose: 3000,
-  //  hideProgressBar: false,
-  //  closeOnClick: true,
-  //  pauseOnHover: false,
-  //  draggable: true,
-  //  progress: undefined,
-  //  theme: 'light',
-  // });
+  const sent = toast.success('Card Added', {
+    position: 'bottom-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
+
   return (
     <>
       <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
@@ -80,7 +83,7 @@ function AddCardForm() {
                 <label className="block font-semibold"> ID </label>
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="ID"
                   className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
                   {...register('cardID')}
                 />
@@ -92,7 +95,7 @@ function AddCardForm() {
                   className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
                   {...register('cardName')}
                 />
-                {errors.cardName && <p>You must enter a number</p>}
+                {errors.cardName && <p>You must enter a full name</p>}
                 <label className="block font-semibold"> Card Number </label>
                 <input
                   type="text"
@@ -111,7 +114,7 @@ function AddCardForm() {
                 {errors.CVC && <p>You must enter a valid Expiration Date</p>}
                 <label className="block font-semibold"> CVC </label>
                 <input
-                  type="number"
+                  type="text"
                   placeholder="123"
                   className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
                   {...register('CVC')}
@@ -126,12 +129,11 @@ function AddCardForm() {
                   <option value="visa">Visa</option>
                   <option value="other">Other</option>
                 </select>
-                {errors.expirationDate && (
-                  <p>Choose either one of the option</p>
-                )}
+                {errors.type && <p>Choose either one of the option</p>}
                 <div className="flex justify-between items-baseline">
                   <button
                     type="submit"
+                    onClick={() => sent}
                     className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
                   >
                     Add Card
@@ -139,10 +141,11 @@ function AddCardForm() {
                   <button
                     onClick={() =>
                       reset({
-                        cardID: 0,
+                        cardID: '',
                         cardName: '',
                         cardNumber: '',
-                        CVC: 0,
+                        expirationDate: '',
+                        CVC: '',
                         type: 'master',
                       })
                     }

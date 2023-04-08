@@ -54,7 +54,6 @@ function SpendingGraph() {
         const fetchAmount = doc.get('expenseInfo.amount');
         amount.push(fetchAmount);
       });
-      console.log(amount);
       setfetchData(amount);
     });
   }, []);

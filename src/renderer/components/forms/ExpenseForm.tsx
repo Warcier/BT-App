@@ -45,7 +45,6 @@ const ExpenseForm = () => {
       },
     });
     console.log('send');
-    alert('data added');
   });
 
   useEffect(() => {
