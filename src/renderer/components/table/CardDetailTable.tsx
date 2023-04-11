@@ -114,7 +114,7 @@ function CardDetailTable() {
               })}
             </tbody>
           </table>
-          <div className="flex flex-auto items-center justify-center">
+          <div className="flex flex-auto items-center justify-center my-10">
             <div className="basis-4 w-64  ">
               <button
                 onClick={() => previousPage()}

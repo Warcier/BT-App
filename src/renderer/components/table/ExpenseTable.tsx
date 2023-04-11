@@ -142,7 +142,7 @@ const ExpenseTable = () => {
                     <span className="mx-auto">Prev</span>
                   </button>
                 </div>
-                <div className="basis-4 w-64  ">
+                <div className="basis-4 w-64 my-5 ">
                   <button
                     onClick={() => nextPage()}
                     disabled={!canNextPage}
