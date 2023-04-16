@@ -5,7 +5,7 @@ const SetBalanceModal = () => {
   return (
     <>
       <Link to="/balancePage">
-        <button className="btn">Add Budget</button>
+        <button className="btn">Add Balance</button>
       </Link>
     </>
   );

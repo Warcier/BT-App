@@ -6,7 +6,10 @@
     "\\src\\renderer",
     "\\src\\renderer\\components",
     "\\src\\renderer\\components\\forms",
-    "\\src\\renderer\\pages"
+    "\\src\\renderer\\components\\table",
+    "\\src\\renderer\\pages",
+    "\\src\\renderer\\pages\\FormPage"
   ],
+  "SelectedNode": "\\src\\renderer\\pages\\Reciept.tsx",
   "PreviewInSolutionExplorer": false
 }

@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { storage } from 'renderer/firebase';
-import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage';
+import {
+  ref,
+  uploadBytes,
+  listAll,
+  getDownloadURL,
+  deleteObject,
+} from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
-
 function ImageUpload() {
-
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, 'photo/'); // Referencing firebase storage path
@@ -57,6 +61,6 @@ function ImageUpload() {
       </button>
     </div>
   );
-};
+}
 
 export default ImageUpload;

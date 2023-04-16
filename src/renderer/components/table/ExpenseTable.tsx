@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { usePagination, useTable } from 'react-table';
+import { usePagination, useSortBy, useTable } from 'react-table';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 
@@ -69,8 +69,9 @@ const ExpenseTable = () => {
     {
       columns,
       data,
-      initialState: { pageSize: 8},
+      initialState: { pageSize: 8 },
     },
+    useSortBy,
     usePagination
   );
 
@@ -90,9 +91,18 @@ const ExpenseTable = () => {
                       {headerGroup.headers.map((column) => (
                         <th
                           className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                          {...column.getHeaderProps()}
+                          {...column.getHeaderProps(
+                            column.getSortByToggleProps()
+                          )}
                         >
                           {column.render('Header')}
+                          <span>
+                            {column.isSorted
+                              ? column.isSortedDesc
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
+                          </span>
                         </th>
                       ))}
                     </tr>
@@ -122,7 +132,8 @@ const ExpenseTable = () => {
                 </tbody>
               </table>
               <div className="flex flex-auto items-center justify-center">
-                <div className="basis-4 w-64  py-8">
+                <div className="basis-4 w-64  ">
+                  {/* eslint-disable-next-line react/button-has-type */}
                   <button
                     onClick={() => previousPage()}
                     disabled={!canPreviousPage}
@@ -131,7 +142,7 @@ const ExpenseTable = () => {
                     <span className="mx-auto">Prev</span>
                   </button>
                 </div>
-                <div className="basis-4 w-64  py-8">
+                <div className="basis-4 w-64 my-5 ">
                   <button
                     onClick={() => nextPage()}
                     disabled={!canNextPage}
