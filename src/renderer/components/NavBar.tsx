@@ -26,31 +26,11 @@ const NavBar = () => {
 
           <li className="hover:bg-blue-600 w-44">
             <Link
-              to="/wallet"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
-            >
-              <FontAwesomeIcon icon={faWallet} />
-              <p className="font-serif">Wallet</p>
-            </Link>
-          </li>
-
-          <li className="hover:bg-blue-600 w-44">
-            <Link
               to="/receipt"
               className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
               <FontAwesomeIcon icon={faUser} />
               <p className="font-serif">Receipt</p>
-            </Link>
-          </li>
-
-          <li className="hover:bg-blue-600 w-44">
-            <Link
-              to="/family"
-              className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
-            >
-              <FontAwesomeIcon icon={faUser} />
-              <p className="font-serif">Profile</p>
             </Link>
           </li>
 

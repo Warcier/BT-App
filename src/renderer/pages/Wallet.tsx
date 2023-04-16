@@ -1,7 +1,6 @@
 import React from 'react';
 import CardDetailTable from 'renderer/components/table/CardDetailTable';
 
-import { CategoryExpenseCard } from '../components/TestingComponents';
 import Receipts from './Reciept';
 
 const Wallet = () => {

@@ -9,6 +9,7 @@ import {
   CategoryExpenseCard,
   SetBalanceModal,
   SetBudgetModal,
+  MainCardModal, ExpenseModal
 } from '../components/TestingComponents';
 import { db } from '../firebase';
 
@@ -67,10 +68,20 @@ function Home() {
           <div className="row-span-1">
             <CategoryExpenseCard budget={budget} />
           </div>
-          <div className="row-span-2 bg-blue-700 ">
+          <div className="row-span-2 p-10 ">
             <div className="grid grid-cols-2 gap-4 justify-items-center ">
-              <div><SetBalanceModal /></div>
-              <div><SetBudgetModal /></div>
+              <div>
+                <SetBalanceModal />
+              </div>
+              <div>
+                <SetBudgetModal />
+              </div>
+              <div>
+                <MainCardModal />
+              </div>
+              <div>
+                <ExpenseModal />
+              </div>
             </div>
           </div>
         </div>
