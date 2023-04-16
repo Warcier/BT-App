@@ -3,9 +3,17 @@ import PersonalCard from '../components/card/PersonalCard';
 import CardDetailTable from '../components/table/CardDetailTable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
-import ImageUpload from './FormPage/ImageUpload';
+import ImageUpload from '../components/ImageUpload';
 
 function Personal() {
+
+  // Used in image gallery part
+  const [Model, setModel] = useState(false);
+
+  const getInput = () => {
+    setModel(true);
+  };
+
   return (
     <div className=" h-screen bg-blue-500/100 p-3">
       <div className={Model ? 'model open' : 'model'}>
