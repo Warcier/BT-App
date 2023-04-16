@@ -10,6 +10,6 @@
     "\\src\\renderer\\pages",
     "\\src\\renderer\\pages\\FormPage"
   ],
-  "SelectedNode": "\\src\\renderer\\pages\\Reciept.tsx",
+  "SelectedNode": "\\src\\renderer\\pages\\FormPage\\ImageUpload.tsx",
   "PreviewInSolutionExplorer": false
 }
