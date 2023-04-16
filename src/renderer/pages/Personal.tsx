@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PersonalCard from '../components/card/PersonalCard';
 import CardDetailTable from '../components/table/CardDetailTable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
