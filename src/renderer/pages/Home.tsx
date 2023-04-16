@@ -49,9 +49,6 @@ function Home() {
         <div className=" w-[75rem] h-[50rem] grid grid-flow-row-dense grid-cols-3 gap-4 py-5">
           <div className="row-span-1 ">
             <BalanceCard />
-            <div className="pt-2 pl-32">
-              <SetBalanceModal />
-            </div>
           </div>
           <div className="row-span-1 ">
             <div className="mb-3">
@@ -59,9 +56,6 @@ function Home() {
             </div>
             <div className="mb-3">
               <SpendingCard total={total} budget={budget} />
-              <div className="pt-2 pl-32">
-                <SetBudgetModal />
-              </div>
             </div>
           </div>
           <div className="row-span-1 ">
@@ -73,7 +67,12 @@ function Home() {
           <div className="row-span-1">
             <CategoryExpenseCard budget={budget} />
           </div>
-          <div className="row-span-2 bg-blue-700 ">08</div>
+          <div className="row-span-2 bg-blue-700 ">
+            <div className="grid grid-cols-2 gap-4 justify-items-center ">
+              <div><SetBalanceModal /></div>
+              <div><SetBudgetModal /></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
