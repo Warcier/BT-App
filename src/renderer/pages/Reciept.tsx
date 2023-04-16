@@ -101,8 +101,6 @@ function Receipts() {
   return (
     <div className="h-full p-3">
 
-      <ImageUpload />
-
       <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />
         {/*<a href={tempImageSrc + "?force=true"}>*/}
@@ -144,11 +142,13 @@ function Receipts() {
       {/*  <button className="btn">»</button>*/}
       {/*</div>*/}
 
-      <div className="flex items-center justify-center bottom-0 pt-2">
-        <Link to="/" className="btn">
-          Home
-        </Link>
-      </div>
+      <ImageUpload />
+
+      {/*<div className="flex items-center justify-center bottom-0 pt-2">*/}
+      {/*  <Link to="/" className="btn">*/}
+      {/*    Home*/}
+      {/*  </Link>*/}
+      {/*</div>*/}
     </div>
   );
 }
