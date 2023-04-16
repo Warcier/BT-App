@@ -8,6 +8,7 @@ import {
   faBook,
   faReceipt,
 } from '@fortawesome/free-solid-svg-icons';
+import { MainCardModal, SetBalanceModal } from './TestingComponents';
 
 const NavBar = () => {
   return (
@@ -64,6 +65,9 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
+        <div className="absolute bottom-2 left-7">
+          <MainCardModal />
+        </div>
       </aside>
     </div>
   );
