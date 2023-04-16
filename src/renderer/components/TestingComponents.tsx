@@ -5,6 +5,7 @@ import SpendingCard from './card/SpendingCard';
 import CCardModal from './modal/CCardModal';
 import CCard from './CCard';
 import SetBalanceModal from './modal/SetBalanceModal';
+import MainCardModal from './modal/MainCardModal';
 import SpendingGraph from './graph/SpendingGraph';
 import ExpenseTable from './table/ExpenseTable';
 import ExpenseModal from './modal/ExpenseModal';
@@ -14,6 +15,8 @@ import SetBudgetPage from '../pages/FormPage/SetBudgetPage';
 import CCardFormPage from '../pages/FormPage/CCardFormPage';
 import AddBalancePage from '../pages/FormPage/AddBalancePage';
 import PInfoPage from '../pages/FormPage/PInfoPage';
+import MainCardPage from '../pages/FormPage/MainCardPage';
+import AddExpensePage from '../pages/FormPage/AddExpensePage';
 
 export {
   PInfoModal,
@@ -22,6 +25,7 @@ export {
   CCardModal,
   ExpenseModal,
   SetBalanceModal,
+  MainCardModal,
   CCard,
   SpendingGraph,
   ExpenseTable,
@@ -31,4 +35,6 @@ export {
   CCardFormPage,
   AddBalancePage,
   PInfoPage,
+  MainCardPage,
+  AddExpensePage,
 };

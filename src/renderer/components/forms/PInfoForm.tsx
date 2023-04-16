@@ -3,21 +3,20 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import { doc, setDoc } from 'firebase/firestore';
-import { v4 as uuidv4 } from 'uuid';
-import { db } from '../../firebase';
 import { ToastContainer } from 'react-toastify';
+import { db } from '../../firebase';
 
 interface IFormInputs {
   fullName: string;
-  age: number;
-  phoneNumber: number;
+  age: string;
+  phoneNumber: string;
   address: string;
 }
 
 const schema = Joi.object({
   fullName: Joi.string().required(),
-  age: Joi.number().required(),
-  phoneNumber: Joi.number().required(),
+  age: Joi.string().required(),
+  phoneNumber: Joi.string().required(),
   address: Joi.string().required(),
 });
 function PInfoForm() {
@@ -31,9 +30,7 @@ function PInfoForm() {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    // Add a new document in collection "cities"
-    // TODO: Automatically assign a unique id to the document
-    await setDoc(doc(db, 'users', 'personal', 'user', `wt${uuidv4()}`), {
+    await setDoc(doc(db, 'users', 'personal', 'user', 'userDetails'), {
       fullName: data.fullName,
       age: data.age,
       phoneNumber: data.phoneNumber,
@@ -70,14 +67,14 @@ function PInfoForm() {
                   className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
                   {...register('phoneNumber')}
                 />
-                {errors.phoneNumber && <p>You must enter a valid Card Number</p>}
+                {errors.phoneNumber && <p>You must enter a valid Number</p>}
                 <label className="block font-semibold"> Address </label>
                 <input
                   type="text"
                   className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-blue-500 focus:ring-1 rounded-md"
                   {...register('address')}
                 />
-                {errors.address && <p>You must enter address </p>}
+                {errors.address && <p>You must enter an address </p>}
                 <div className="flex justify-between items-baseline">
                   <button
                     type="submit"

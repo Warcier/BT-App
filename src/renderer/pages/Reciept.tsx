@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faTrash, faT, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { bool, boolean } from 'joi';
-import ImageUpload from './FormPage/ImageUpload';
+import ImageUpload from '../components/ImageUpload';
 
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
@@ -99,7 +99,7 @@ function Receipts() {
   };
 
   return (
-    <div className="h-full">
+    <div className="h-full p-3">
 
       <ImageUpload />
 
@@ -128,7 +128,7 @@ function Receipts() {
             //    <a href={"#slide" + (index-1)} className="btn btn-circle">❮</a>
             //    <a href={"#slide" + (index+1)} className="btn btn-circle">❯</a>
             //  </div>
-            //</div> 
+            //</div>
 
             // Normal view
             //<div className="pics" key={index} onClick={() => getImg(url, index)}>
@@ -144,7 +144,7 @@ function Receipts() {
       {/*  <button className="btn">»</button>*/}
       {/*</div>*/}
 
-      <div className="flex items-center justify-center bottom-0">
+      <div className="flex items-center justify-center bottom-0 pt-2">
         <Link to="/" className="btn">
           Home
         </Link>

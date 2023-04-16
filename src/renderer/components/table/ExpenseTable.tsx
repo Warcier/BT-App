@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { usePagination, useTable } from 'react-table';
+import { usePagination, useSortBy, useTable } from 'react-table';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 
@@ -69,8 +69,9 @@ const ExpenseTable = () => {
     {
       columns,
       data,
-      initialState: { pageSize: 8},
+      initialState: { pageSize: 8 },
     },
+    useSortBy,
     usePagination
   );
 
@@ -84,15 +85,24 @@ const ExpenseTable = () => {
                 className="w-[50rem] h-auto text-center text-EerieBlack divide-y divide-[#F2F6D0]"
                 {...getTableProps()}
               >
-                <thead className="bg-gradient-to-r from-blue-300 to-blue-700">
+                <thead className="text-white bg-blue-500 hover:bg-gradient-to-r from-blue-300 to-blue-700">
                   {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                       {headerGroup.headers.map((column) => (
                         <th
                           className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                          {...column.getHeaderProps()}
+                          {...column.getHeaderProps(
+                            column.getSortByToggleProps()
+                          )}
                         >
                           {column.render('Header')}
+                          <span>
+                            {column.isSorted
+                              ? column.isSortedDesc
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
+                          </span>
                         </th>
                       ))}
                     </tr>
@@ -123,6 +133,7 @@ const ExpenseTable = () => {
               </table>
               <div className="flex flex-auto items-center justify-center">
                 <div className="basis-4 w-64  ">
+                  {/* eslint-disable-next-line react/button-has-type */}
                   <button
                     onClick={() => previousPage()}
                     disabled={!canPreviousPage}
@@ -131,7 +142,7 @@ const ExpenseTable = () => {
                     <span className="mx-auto">Prev</span>
                   </button>
                 </div>
-                <div className="basis-4 w-64  ">
+                <div className="basis-4 w-64 my-5 ">
                   <button
                     onClick={() => nextPage()}
                     disabled={!canNextPage}

@@ -6,6 +6,7 @@ import {
   PInfoModal,
   SetBudgetModal,
   SetBalanceModal,
+  MainCardModal,
 } from '../components/TestingComponents';
 
 function FamilySpend() {
@@ -13,11 +14,12 @@ function FamilySpend() {
     <>
       <div className="h-screen flex flex-col items-center justify-center space-y-2">
         <div>
-          <ExpenseModal />
           <PInfoModal />
           <SetBudgetModal />
           <SetBalanceModal />
           <CCardModal />
+          <MainCardModal />
+          <ExpenseModal />
         </div>
       </div>
     </>
