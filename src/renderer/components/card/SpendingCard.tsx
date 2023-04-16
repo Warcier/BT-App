@@ -4,7 +4,7 @@ import { db } from '../../firebase';
 
 function SpendingCard(props) {
   return (
-    <div className="stats text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow shadow-xl w-[24.4rem] height-fixed hover:shadow-lg">
+    <div className="stats text-white transition delay-75 ease-in-out bg-blue-600 hover:bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transform active:-translate-y-2 shadow shadow-xl w-[24.4rem] height-fixed hover:shadow-lg">
       <div className="stat">
         <div className=" text-xl pb-1">Spending Limits</div>
         <progress

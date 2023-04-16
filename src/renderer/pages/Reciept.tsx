@@ -79,7 +79,7 @@ function Receipts() {
   };
 
   return (
-    <div className="h-full">
+    <div className="h-full p-3">
 
       <ImageUpload />
 
@@ -95,7 +95,7 @@ function Receipts() {
             // Full-bleed carousel from DaisyUI
             <div className="carousel-item">
               <img src={url} className="rounded-box w-600 h-400 " />
-            </div> 
+            </div>
 
 
             // Carousel with next/prev buttons from DaisyUI
@@ -105,7 +105,7 @@ function Receipts() {
             //    <a href={"#slide" + (index-1)} className="btn btn-circle">❮</a>
             //    <a href={"#slide" + (index+1)} className="btn btn-circle">❯</a>
             //  </div>
-            //</div> 
+            //</div>
 
             // Normal view
             //<div className="pics" key={index} onClick={() => getImg(url, index)}>
@@ -121,7 +121,7 @@ function Receipts() {
       {/*  <button className="btn">»</button>*/}
       {/*</div>*/}
 
-      <div className="flex items-center justify-center bottom-0">
+      <div className="flex items-center justify-center bottom-0 pt-2">
         <Link to="/" className="btn">
           Home
         </Link>

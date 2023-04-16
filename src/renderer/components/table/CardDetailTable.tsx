@@ -5,7 +5,7 @@ import { db } from '../../firebase';
 function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
   const data = useMemo(() => [...table], [table]);
-  const docRef = collection(db, 'users/wallet/user');
+  const docRef = collection(db, 'users/wallet/userCard');
 
   useEffect(() => {
     const unsubscribe = onSnapshot(docRef, (doc) => {
@@ -19,10 +19,10 @@ function CardDetailTable() {
 
   return (
     <div>
-      <div className="container rounded-md ">
+      <div className="container rounded-md">
         <div className="overflow-x-auto">
-          <table className="table w-[74rem] h-[15rem] text-center text-EerieBlack  ">
-            <thead className="bg-success">
+          <table className="table w-[74rem] h-[15rem] text-center text-EerieBlack ">
+            <thead>
               <tr>
                 <th className="bg-blue-300">#</th>
                 <th className="bg-blue-300">ID</th>

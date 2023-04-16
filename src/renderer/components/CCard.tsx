@@ -8,9 +8,9 @@ import React from 'react';
 function CCard() {
   return (
     <>
-      <div className="space-y-16">
-        <div className="w-96 h-56 m-auto bg-red-100 relative text-white ">
-          <div className="relative rounded-xl object-cover w-full h-full bg-gradient-to-r from-blue-700 to-green-400 hover:shadow-lg " />
+      <div className="w-96 h-56 m-auto relative rounded-xl space-y-16 transition bg-gradient-to-r from-blue-700 to-green-400 transform hover:transparent ">
+        <div className="w-96 h-56 m-auto relative rounded-xl text-white hover:bg-gradient-to-r from-green-400 to-blue-700">
+          <div className="relative rounded-xl object-cover w-full h-full shadow-lg " />
           <div className="w-full px-8 absolute top-4">
             <div className="flex justify-between">
               <div className="">

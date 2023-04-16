@@ -84,7 +84,7 @@ const ExpenseTable = () => {
                 className="w-[50rem] h-auto text-center text-EerieBlack divide-y divide-[#F2F6D0]"
                 {...getTableProps()}
               >
-                <thead className="bg-gradient-to-r from-blue-300 to-blue-700">
+                <thead className="text-white bg-blue-500 hover:bg-gradient-to-r from-blue-300 to-blue-700">
                   {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                       {headerGroup.headers.map((column) => (
@@ -122,7 +122,7 @@ const ExpenseTable = () => {
                 </tbody>
               </table>
               <div className="flex flex-auto items-center justify-center">
-                <div className="basis-4 w-64  ">
+                <div className="basis-4 w-64  py-8">
                   <button
                     onClick={() => previousPage()}
                     disabled={!canPreviousPage}
@@ -131,7 +131,7 @@ const ExpenseTable = () => {
                     <span className="mx-auto">Prev</span>
                   </button>
                 </div>
-                <div className="basis-4 w-64  ">
+                <div className="basis-4 w-64  py-8">
                   <button
                     onClick={() => nextPage()}
                     disabled={!canNextPage}

@@ -84,4 +84,13 @@ module.exports = {
     prefix: '',
     darkTheme: 'dark',
   },
+  extend: {
+    transitionDelay: {
+      500: '500ms',
+    },
+
+    transitionDuration: {
+      1000: '1000ms',
+    },
+  },
 };

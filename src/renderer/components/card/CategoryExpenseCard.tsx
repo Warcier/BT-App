@@ -7,8 +7,11 @@ import OtherBar from './ExpenseTypeBar/OtherBar';
 const CategoryExpenseCard = (props) => {
   return (
     <>
-      <div className="border-2 rounded-lg text-white w-[390px] h-[320px] grid h-screen place-items-center
-      bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow shadow-xl hover:shadow-lg">
+      <div
+        className="border-2 rounded-lg text-white w-[390px] h-[320px] grid h-screen place-items-center
+        transition delay-75 ease-in-out bg-blue-600 hover:bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transform
+        active:-translate-y-2  shadow shadow-xl hover:shadow-lg"
+      >
         <div className="grid grid-row-4 gap-4">
           <div>
             <div>
