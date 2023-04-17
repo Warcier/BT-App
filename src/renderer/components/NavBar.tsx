@@ -5,7 +5,7 @@ import {
   faHome,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { MainCardModal, SetBalanceModal } from './TestingComponents';
+import { MainCardModal } from './TestingComponents';
 
 const Logo = require('./assets/logo.png');
 

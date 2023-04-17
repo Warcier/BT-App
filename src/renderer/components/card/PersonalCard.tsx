@@ -5,6 +5,8 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import ImageUpload from '../ImageUpload';
 import { db } from '../../firebase';
 import PInfoModal from '../modal/PInfoModal';
+import { CCardModal } from '../TestingComponents';
+
 function PersonalCard() {
   // Used in image gallery part
   const [Model, setModel] = useState(false);
@@ -59,7 +61,14 @@ function PersonalCard() {
               <p>
                 <b>Address:</b> {address}
               </p>
-              <PInfoModal />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <PInfoModal />
+                </div>
+                <div>
+                  <CCardModal />
+                </div>
+              </div>
             </div>
           </div>
         </div>

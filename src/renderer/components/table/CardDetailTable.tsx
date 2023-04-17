@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { usePagination, useSortBy, useTable } from 'react-table';
 import { db } from '../../firebase';
+import { CCardModal } from '../TestingComponents';
 
 function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
