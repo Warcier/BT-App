@@ -85,7 +85,6 @@ function SpendingGraph() {
               </AreaChart>
             </ResponsiveContainer>
           </div>
-          <div className="right row-span-2 text-center ">30%</div>
         </div>
       </div>
     </>

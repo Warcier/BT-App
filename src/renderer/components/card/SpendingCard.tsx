@@ -20,7 +20,7 @@ function SpendingCard(props) {
           max={props.budget}
         />
         <span>
-          ${props.total} out of ${props.total}
+          ${props.total} out of ${props.budget}
         </span>
       </div>
     </div>
