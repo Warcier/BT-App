@@ -14,9 +14,9 @@ const NavBar = () => {
     <div>
       <aside className="flex flex-col bg-gradient-to-r from-blue-700 to-blue-900 text-white shadow h-full w-44 py-10">
         <ul>
-          <li className="hover:bg-blue-600 w-44">
-            <img  src={String(Logo)} alt="*" />
-          </li>
+          <div className="w-44 -mt-14 -mb-6 pl-6 active:translate-y-2">
+            <img className="h-32 w-32 fill-black" src={String(Logo)} alt="*" />
+          </div>
 
           <li className="hover:bg-blue-600 w-44">
             <Link
