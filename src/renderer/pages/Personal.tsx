@@ -14,16 +14,16 @@ function Personal() {
   };
 
   return (
-    <div className=" bg-blue-500/100  ">
+    <div className=" bg-blue-500/100 h-screen ">
       <div className={Model ? 'model open' : 'model'}>
         <ImageUpload />
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
 
-      <div className="text-[30px] font-semibold bg-blue-500/50 p-3">
+      <div className="text-[30px] font-semibold bg-blue-500/50 p-3 ">
         <div>
           <PersonalCard />
-          <div className=" m-5 flex items-center justify-center bg-white space-x-2">
+          <div className=" m-5 flex items-center justify-center bg-white space-x-2 ">
             <h1 className="text-blue-500">
               <h1 className="text-center font-bold text-4xl my-3">
                 Credit Card

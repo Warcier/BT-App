@@ -10,7 +10,6 @@ import {
   where,
   writeBatch,
 } from 'firebase/firestore';
-import { ToastContainer, toast } from 'react-toastify';
 import { db } from '../../firebase';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,13 +37,14 @@ const MainCard = () => {
     // Update the OlD Main Card Main:Attr = "No"
     const batch = writeBatch(Database);
 
-    const cardRef1 = doc(db, `/users/wallet/userCard/${Old}`);
+    const cardRef1 = await doc(db, `/users/wallet/userCard/${String(Old)}`);
+    const cardRef2 = await doc(db, `/users/wallet/userCard/${String(NewID)}`);
     batch.update(cardRef1, {
       'cardInfo.Main': 'No',
     });
 
     // Update the New Main Card Main:Attr = "Yes"
-    const cardRef2 = doc(db, `/users/wallet/userCard/${NewID}`);
+
     batch.update(cardRef2, {
       'cardInfo.Main': 'Yes',
     });
@@ -53,18 +53,14 @@ const MainCard = () => {
     console.log('Updated');
   }
 
-  async function getOldID() {
+  const onSubmit = handleSubmit(async (data) => {
     const cardInfoRef = collection(db, '/users/wallet/userCard');
 
     const oldQ = query(cardInfoRef, where('cardInfo.Main', '==', 'Yes'));
     const querySnapshot1 = await getDocs(oldQ);
     querySnapshot1.forEach((oldData) => {
-      return oldData.id;
+      setOldID(oldData.id);
     });
-  }
-
-  async function getNewID(data: any) {
-    const cardInfoRef = collection(db, '/users/wallet/userCard');
 
     const newQ = query(
       cardInfoRef,
@@ -72,12 +68,9 @@ const MainCard = () => {
     );
     const querySnapshot2 = await getDocs(newQ);
     querySnapshot2.forEach((newData) => {
-      return newData.id;
+      setNewDocID(newData.id);
     });
-  }
-  const onSubmit = handleSubmit(async (data) => {
-    await setOldID(getOldID());
-    await setNewDocID(getNewID(data));
+
     await swapMainCard(oldID, newDocID, db);
   });
 

@@ -76,10 +76,7 @@ function Home() {
               <div>
                 <SetBudgetModal />
               </div>
-              <div>
-                <MainCardModal />
-              </div>
-              <div>
+              <div className="col-span-2">
                 <ExpenseModal />
               </div>
             </div>

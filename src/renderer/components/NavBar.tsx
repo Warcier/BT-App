@@ -3,18 +3,21 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
-  faWallet,
   faUser,
-  faBook,
-  faReceipt,
 } from '@fortawesome/free-solid-svg-icons';
 import { MainCardModal, SetBalanceModal } from './TestingComponents';
+
+const Logo = require('./assets/logo.png');
 
 const NavBar = () => {
   return (
     <div>
       <aside className="flex flex-col bg-gradient-to-r from-blue-700 to-blue-900 text-white shadow h-full w-44 py-10">
         <ul>
+          <li className="hover:bg-blue-600 w-44">
+            <img  src={String(Logo)} alt="*" />
+          </li>
+
           <li className="hover:bg-blue-600 w-44">
             <Link
               to="/"
