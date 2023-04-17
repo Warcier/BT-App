@@ -7,7 +7,7 @@ const FoodBar = (props) => {
   const transactionRef = collection(db, '/users/expenditure/transaction');
   const foodQuery = query(
     transactionRef,
-    where('expenseInfo.expenseType', '==', 'other')
+    where('expenseInfo.expenseType', '==', 'Other')
   );
 
   const unsubscribe = onSnapshot(foodQuery, (querySnapshot) => {
@@ -16,10 +16,13 @@ const FoodBar = (props) => {
       const fetchAmount = doc.get('expenseInfo.amount');
       otherTransaction.push(fetchAmount);
     });
+
     const value = otherTransaction.reduce(
       (nextValue, currentValue) => nextValue + currentValue
     );
+
     setOtherValue(value);
+    console.log(otherValue);
   });
 
   return (

@@ -7,7 +7,7 @@ const FoodBar = (props) => {
   const transactionRef = collection(db, '/users/expenditure/transaction');
   const foodQuery = query(
     transactionRef,
-    where('expenseInfo.expenseType', '==', 'transport')
+    where('expenseInfo.expenseType', '==', 'Transport')
   );
   const unsubscribe = onSnapshot(foodQuery, (querySnapshot) => {
     const transportTransaction: any[] = [0];

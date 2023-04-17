@@ -9,7 +9,7 @@ function SpendingCard(props) {
     } else {
       setOverBudget('accent');
     }
-  }, [])
+  }, []);
   return (
     <div className="stats text-white transition delay-75 ease-in-out bg-blue-600 hover:bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transform active:-translate-y-2 shadow shadow-xl w-[24.4rem] height-fixed hover:shadow-lg">
       <div className="stat">
