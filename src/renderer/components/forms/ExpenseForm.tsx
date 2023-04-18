@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi/dist/joi';
 import Joi from 'joi';
 import { DayPicker } from 'react-day-picker';
+import { v4 as uuid } from 'uuid';
 import { db } from '../../firebase';
 import 'react-day-picker/dist/style.css';
-import { ToastContainer } from 'react-toastify';
 
 interface IFormInputs {
   expense: string;
@@ -44,7 +44,7 @@ const ExpenseForm = () => {
         const newBal = balanceDoc.data().current_balance - value;
         if (newBal > 0) {
           transaction.update(balanceDocRef, { current_balance: newBal });
-          return ('Deducted');
+          return 'Deducted';
         }
         transaction.update(balanceDocRef, { current_balance: 0 });
       });
@@ -58,15 +58,18 @@ const ExpenseForm = () => {
 
   // Handle Submit Action for the form
   const onSubmit = handleSubmit(async (data) => {
-    await setDoc(doc(db, 'users', 'expenditure', 'transaction', `spend-1`), {
-      expenseInfo: {
-        expense: data.expense,
-        amount: data.amount,
-        expenseType: data.expenseType,
-        date: format(selected, 'P'),
-        timestamp: new Date(),
-      },
-    });
+    await setDoc(
+      doc(db, 'users', 'expenditure', 'transaction', `cc${uuid()}`),
+      {
+        expenseInfo: {
+          expense: data.expense,
+          amount: data.amount,
+          expenseType: data.expenseType,
+          date: format(selected, 'P'),
+          timestamp: new Date(),
+        },
+      }
+    );
     await deductBalance(data.amount);
     console.log('send');
   });
@@ -140,7 +143,6 @@ const ExpenseForm = () => {
                   >
                     Reset
                   </button>
-                  <ToastContainer />
                 </div>
               </div>
             </form>

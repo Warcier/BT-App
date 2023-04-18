@@ -29,16 +29,6 @@ const BudgetForm = () => {
     });
   });
 
-  const sent = toast.success('New Budget Set', {
-    position: 'bottom-right',
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-    theme: 'light',
-  });
 
   return (
     <>
@@ -60,12 +50,10 @@ const BudgetForm = () => {
                 <div className="flex justify-between items-baseline">
                   <button
                     type="submit"
-                    onClick={() => sent}
                     className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
                   >
                     Set
                   </button>
-                  <ToastContainer />
                 </div>
               </div>
             </form>

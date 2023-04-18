@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { collection, doc, getDoc, onSnapshot } from 'firebase/firestore';
-import { useRowState } from 'react-table';
+import { doc, onSnapshot } from 'firebase/firestore';
 import ImageUpload from '../ImageUpload';
 import { db } from '../../firebase';
+import PInfoModal from '../modal/PInfoModal';
+import { CCardModal } from '../TestingComponents';
 
 function PersonalCard() {
   // Used in image gallery part
@@ -60,6 +61,14 @@ function PersonalCard() {
               <p>
                 <b>Address:</b> {address}
               </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <PInfoModal />
+                </div>
+                <div>
+                  <CCardModal />
+                </div>
+              </div>
             </div>
           </div>
         </div>

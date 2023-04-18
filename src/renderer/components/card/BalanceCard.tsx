@@ -17,7 +17,7 @@ const BalanceCard = () => {
 
   return (
     <>
-      <div className="w-[24.4rem] h-[13.1rem] rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 hover:shadow-lg">
+      <div className="w-[24.4rem] h-[13.1rem] rounded-lg transition bg-blue-500 hover:bg-gradient-to-r from-blue-600 to-blue-400 transform active:-translate-y-2 hover:shadow-lg">
         <div className="flex flex-col justify-center items-center h-[12rem]">
           <div >
             <div className="font-semibold text-2xl text-white py-3">

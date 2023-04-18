@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi, { number } from 'joi';
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
-import { toast, ToastContainer } from 'react-toastify';
 import { db } from '../../firebase';
 
 interface IFormInputs {
@@ -50,17 +49,6 @@ const BalanceForm = () => {
     getCurrentBalance().catch((err) => console.log(err));
   }, []);
 
-  const sent = toast.success('New Budget Set', {
-    position: 'bottom-right',
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-    theme: 'light',
-  });
-
   return (
     <>
       <div className="relative flex min-h-screen text-gray-800 flex-col justify-center overflow-hidden py-6 ">
@@ -81,12 +69,10 @@ const BalanceForm = () => {
                 <div className="flex justify-between items-baseline">
                   <button
                     type="submit"
-                    onClick={() => sent}
                     className=" btn btn-secondary mt-4 py-2 px-6 text-gray-800 "
                   >
                     Set
                   </button>
-                  <ToastContainer />
                 </div>
               </div>
             </form>

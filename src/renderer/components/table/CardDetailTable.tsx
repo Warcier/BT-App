@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { usePagination, useSortBy, useTable } from 'react-table';
 import { db } from '../../firebase';
+import { CCardModal } from '../TestingComponents';
 
 function CardDetailTable() {
   const [table, setTable] = useState<any[]>([]);
   const data = useMemo(() => [...table], [table]);
-  const docRef = collection(db, '/users/wallet/userCard');
+  const docRef = collection(db, 'users/wallet/userCard');
 
   useEffect(() => {
     const unsubscribe = onSnapshot(docRef, (doc) => {
@@ -59,7 +60,7 @@ function CardDetailTable() {
     {
       columns,
       data,
-      initialState: { pageSize: 8 },
+      initialState: { pageSize: 4 },
     },
     useSortBy,
     usePagination
@@ -67,32 +68,17 @@ function CardDetailTable() {
 
   return (
     <div>
-      <div className="container rounded-md ">
+      <div className="container rounded-md">
         <div className="overflow-x-auto">
-          <table
-            className="table w-[70rem] h-auto text-center text-EerieBlack"
-            {...getTableProps()}
-          >
+          <table className="table w-[70rem] h-auto text-center text-EerieBlack  ">
             <thead className="bg-success">
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
-                    <th
-                      className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                      {...column.getHeaderProps(column.getSortByToggleProps())}
-                    >
-                      {column.render('Header')}
-                      <span>
-                        {column.isSorted
-                          ? column.isSortedDesc
-                            ? ' 🔽'
-                            : ' 🔼'
-                          : ''}
-                      </span>
-                    </th>
-                  ))}
-                </tr>
-              ))}
+              <tr>
+                <th className="bg-blue-300">ID</th>
+                <th className="bg-blue-300">Name</th>
+                <th className="bg-blue-300">Card</th>
+                <th className="bg-blue-300">Expiration Date</th>
+                <th className="bg-blue-300">CVC</th>
+              </tr>
             </thead>
             <tbody {...getTableBodyProps()}>
               {page.map((row, i) => {

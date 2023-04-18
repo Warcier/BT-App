@@ -165,4 +165,16 @@ carousel-item {
   cursor: pointer;
 }
 
+  .model.open svg.fa-file-arrow-down {
+    position: fixed;
+    top: 10px;
+    right: 110px;
+    width: 2rem;
+    height: 2rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    cursor: pointer;
+  }
+
 /* End of styling receipt page and images */

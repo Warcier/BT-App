@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { storage } from 'renderer/firebase';
-import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage';
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject, getMetadata, FullMetadata } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faTrash, faT } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faTrash, faT, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { bool, boolean } from 'joi';
 import ImageUpload from '../components/ImageUpload';
 
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
+  const [metaData, setMetaData] = useState<FullMetadata>([]);
+
   const imageListRef = ref(storage, 'photo/'); // Referencing firebase storage path
   const inputRef = useRef(null); // Used for reset file input later
 
@@ -60,10 +62,28 @@ function Receipts() {
               setImageList((prev) => [...prev, url]);
             })
             .catch((e) => console.warn(e));
+          getMetadata(item)
+            .then((value) => {
+              setMetaData((prev) => [...prev, value]);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         });
       })
       .catch((e) => console.warn(e));
-  }, []);
+
+    // Getting Meta Data of File
+    //getMetadata(item)
+    //  .then((value) => {
+    //    setMetaData(value);
+    //  })
+    //  .catch((error) => {
+    //    console.log(error);
+    //  })
+    console.log();
+    console.log(metaData);
+}, []);
 
 
   // const refresh = () => {
@@ -79,12 +99,13 @@ function Receipts() {
   };
 
   return (
-    <div className="h-full">
-
-      <ImageUpload />
+    <div className="h-full p-3">
 
       <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />
+        {/*<a href={tempImageSrc + "?force=true"}>*/}
+        {/*  <FontAwesomeIcon icon={faFileArrowDown} />*/}
+        {/*</a>*/}
         <FontAwesomeIcon icon={faTrash} onClick={deleteImage} />
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
@@ -94,7 +115,7 @@ function Receipts() {
           return (
             // Full-bleed carousel from DaisyUI
             <div className="carousel-item">
-              <img src={url} className="rounded-box w-600 h-400" key={index} onClick={() => getImg(url, index)} />
+              <img src={url} className="rounded-box w-600 h-400 hover:opacity-70" key={index} onClick={() => getImg(url, index)} />
             </div>
 
 
@@ -120,12 +141,15 @@ function Receipts() {
       {/*  <button className="btn">Page 1</button>*/}
       {/*  <button className="btn">»</button>*/}
       {/*</div>*/}
-
-      <div className="flex items-center justify-center bottom-0">
-        <Link to="/" className="btn">
-          Home
-        </Link>
+      <div className="pt-2">
+        <ImageUpload />
       </div>
+
+      {/*<div className="flex items-center justify-center bottom-0 pt-2">*/}
+      {/*  <Link to="/" className="btn">*/}
+      {/*    Home*/}
+      {/*  </Link>*/}
+      {/*</div>*/}
     </div>
   );
 }
