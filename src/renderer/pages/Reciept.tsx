@@ -116,7 +116,7 @@ function Receipts() {
             // Full-bleed carousel from DaisyUI
             <div className="carousel-item">
               <img src={url} className="rounded-box w-600 h-400 hover:opacity-70" key={index} onClick={() => getImg(url, index)} />
-            </div> 
+            </div>
 
 
             // Carousel with next/prev buttons from DaisyUI
@@ -141,8 +141,9 @@ function Receipts() {
       {/*  <button className="btn">Page 1</button>*/}
       {/*  <button className="btn">»</button>*/}
       {/*</div>*/}
-
-      <ImageUpload />
+      <div className="pt-2">
+        <ImageUpload />
+      </div>
 
       {/*<div className="flex items-center justify-center bottom-0 pt-2">*/}
       {/*  <Link to="/" className="btn">*/}
