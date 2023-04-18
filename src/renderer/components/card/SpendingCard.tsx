@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function SpendingCard(props) {
   return (
     <div className="stats text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow shadow-xl w-[24.4rem] height-fixed hover:shadow-lg">
