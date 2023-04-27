@@ -112,7 +112,7 @@ function Receipts() {
             // Full-bleed carousel from DaisyUI
             <div className="carousel-item">
               <img src={url} className="rounded-box w-600 h-400 hover:opacity-70" key={index} onClick={() => getImg(url, index)} />
-            </div> 
+            </div>
 
 
             // Carousel with next/prev buttons from DaisyUI
@@ -130,9 +130,6 @@ function Receipts() {
             //</div>
           );
         })}
-        <div className="h-32 scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
-          <div className="h-64"></div>
-        </div>
       </div>
 
       {/*<div className="btn-group flex items-center justify-center">*/}

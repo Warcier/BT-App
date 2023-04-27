@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PersonalCard from '../components/card/PersonalCard';
 import CardDetailTable from '../components/table/CardDetailTable';

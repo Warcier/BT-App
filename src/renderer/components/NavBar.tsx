@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
+  faReceipt,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { MainCardModal, SetBalanceModal } from './TestingComponents';
+import { MainCardModal } from './TestingComponents';
 
 const Logo = require('./assets/logo.png');
 
@@ -33,7 +34,7 @@ const NavBar = () => {
               to="/receipt"
               className="text-xl h-16 px-6 flex flex justify-center items-center w-full space-x-5"
             >
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={faReceipt} />
               <p className="font-serif">Receipt</p>
             </Link>
           </li>
