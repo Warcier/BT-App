@@ -11,10 +11,10 @@ import ImageUpload from '../components/ImageUpload';
 function Receipts() {
   const [imageUpload, setImageUpload] = useState<FileList>();
   const [imageList, setImageList] = useState([]);
-  const [metaData, setMetaData] = useState<FullMetadata>([]);
-
   const imageListRef = ref(storage, 'photo/'); // Referencing firebase storage path
+
   const inputRef = useRef(null); // Used for reset file input later
+  const [metaData, setMetaData] = useState<FullMetadata>([]);
 
   // Used in image gallery part
   const [Model, setModel] = useState(false);
@@ -33,8 +33,12 @@ function Receipts() {
             setImageList((prev) => [...prev, url]);
           })
           .catch((e) => console.warn(e));
+        window.location.reload();
       })
       .catch((e) => console.warn(e));
+
+    //window.location.reload();
+    //refresh();
   };
 
   const deleteImage = () => {
@@ -62,13 +66,13 @@ function Receipts() {
               setImageList((prev) => [...prev, url]);
             })
             .catch((e) => console.warn(e));
-          getMetadata(item)
-            .then((value) => {
-              setMetaData((prev) => [...prev, value]);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+          //getMetadata(item)
+          //  .then((value) => {
+          //    setMetaData((prev) => [...prev, value]);
+          //  })
+          //  .catch((error) => {
+          //    console.log(error);
+          //  });
         });
       })
       .catch((e) => console.warn(e));
@@ -80,15 +84,10 @@ function Receipts() {
     //  })
     //  .catch((error) => {
     //    console.log(error);
-    //  })
-    console.log();
-    console.log(metaData);
+    ////  })
+    //console.log();
+    //console.log(metaData);
 }, []);
-
-
-  // const refresh = () => {
-  //   window.location.reload();
-  // }
 
   const getImg = (imgSrc: string, index: number) => {
     setModel(true);
@@ -103,9 +102,6 @@ function Receipts() {
 
       <div className={Model ? 'model open' : 'model'}>
         <img src={tempImageSrc} />
-        {/*<a href={tempImageSrc + "?force=true"}>*/}
-        {/*  <FontAwesomeIcon icon={faFileArrowDown} />*/}
-        {/*</a>*/}
         <FontAwesomeIcon icon={faTrash} onClick={deleteImage} />
         <FontAwesomeIcon icon={faXmark} onClick={() => setModel(false)} />
       </div>
@@ -134,6 +130,9 @@ function Receipts() {
             //</div>
           );
         })}
+        <div className="h-32 scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
+          <div className="h-64"></div>
+        </div>
       </div>
 
       {/*<div className="btn-group flex items-center justify-center">*/}
@@ -142,7 +141,31 @@ function Receipts() {
       {/*  <button className="btn">»</button>*/}
       {/*</div>*/}
 
-      <ImageUpload />
+
+      {/*<!-- Image Upload Module -->*/}
+      <div className="flex items-center justify-center">
+        <input
+          ref={inputRef}
+          type="file"
+          className="file-input file-input-bordered file-input-info w-full max-w-lg"
+          onChange={(event) => {
+            // @ts-ignore
+            setImageUpload(event.target.files[0]);
+          }}
+        />
+        <button
+          type="submit"
+          className="btn"
+          onClick={() => {
+            uploadImage();
+            // Reset file input field and imageUpload value
+            setImageUpload(null);
+            inputRef.current.value = null;
+          }}
+        >
+          Upload
+        </button>
+      </div>
 
       {/*<div className="flex items-center justify-center bottom-0 pt-2">*/}
       {/*  <Link to="/" className="btn">*/}

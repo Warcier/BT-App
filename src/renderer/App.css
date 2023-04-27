@@ -54,6 +54,7 @@ body {
     position: relative;
     height: 700px;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 carousel-item {
