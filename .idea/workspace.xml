@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cc3bc691-06de-4712-8ce7-ce4c19b9d7e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.eslint.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.main.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.preload.dev.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.renderer.dev.dll.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.renderer.dev.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.config.renderer.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/configs/webpack.paths.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/img/erb-banner.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/img/erb-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/img/palette-sponsor-banner.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/mocks/fileMock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/check-build-exists.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/check-native-dep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/check-node-env.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/check-port-in-use.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/clean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/delete-source-maps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/electron-rebuild.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/link-modules.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.erb/scripts/notarize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/stale.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/codeql-analysis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/KPD_Project/FileContentIndex/34fadf85-f39f-47a7-b0a8-bbcdc1666fd0.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/KPD_Project/FileContentIndex/858f6b80-71b3-47e3-a40a-306bd63c24a7.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/KPD_Project/FileContentIndex/cf2d48fa-2669-4b77-9ab0-ac960d4c2c9b.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/KPD_Project/FileContentIndex/read.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/KPD_Project/v17/.wsuo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/READ_Git.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/assets.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/entitlements.mac.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/app/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/app/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/JSON_PERSONAL.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/menu.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/preload.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/util.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/CCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/ImageUpload.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/NavBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/TestingComponents.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/TextTag.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/assets/MasterCard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/assets/Visa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/BalanceCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/CategoryExpenseCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/ExpenseTypeBar/ClothesBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/ExpenseTypeBar/FoodBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/ExpenseTypeBar/OtherBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/ExpenseTypeBar/TransportBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/PersonalCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/card/SpendingCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/forms/AddCardForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/forms/BalanceForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/forms/BudgetForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/forms/ExpenseForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/forms/MainCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/forms/PInfoForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/function.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/graph/SpendingGraph.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/modal/CCardModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/modal/ExpenseModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/modal/MainCardModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/modal/PInfoModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/modal/SetBalanceModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/modal/SetBudgetModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/table/CardDetailTable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/table/ExpenseTable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/firebase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FamilySpend.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FormPage/AddBalancePage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FormPage/AddExpensePage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FormPage/CCardFormPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FormPage/MainCardPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FormPage/PInfoPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/FormPage/SetBudgetPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/Home.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/Personal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/Reciept.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/pages/Wallet.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/preload.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2VYtt160ASWQCL3DyGO94k2hkBF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Code&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc3bc691-06de-4712-8ce7-ce4c19b9d7e8" name="Changes" comment="" />
+      <created>1695025053044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695025053044</updated>
+      <workItem from="1695025054104" duration="24000" />
+      <workItem from="1695025086660" duration="68000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
